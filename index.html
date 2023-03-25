@@ -20,18 +20,18 @@
 </head>
 
 <body>
-    <!--============== HEADER ==============-->
+    <!--======================================= HEADER =======================================-->
     <header class="header" id="header">
         <nav class="nav container">
-            <!--============== NAV LOGO ==============-->
+            <!--================================== NAV LOGO ==================================-->
             <a class="nav__logo-a-img" href="#">
                 <img class="nav__logo-img" src="Assets/img/iconoLogo.png" alt="">
             </a>
 
-            <!--============== OVERLAY ==============-->
+            <!--================================== OVERLAY ==================================-->
             <div class="nav__overlay" id="nav-overlay"></div>
 
-            <!--============== HAMBURGUER MENU ==============-->
+            <!--============================== HAMBURGUER MENU ==============================-->
             <div class="nav__toggle-wrapper" id="nav-toggle">
                 <span class="nav__texto-menu">Menu</span>
                 <button class="nav__toggle">
@@ -43,7 +43,7 @@
 
             <div class="nav__menu" id="nav-menu">
 
-                <!--============== NAV HEADER ==============-->
+                <!--=============================== NAV HEADER ===============================-->
                 <div class="nav__header">
                     <div class="nav__logo-two">
                         <a href="#">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
 
-                <!--============== NAV MAIN ==============-->
+                <!--================================ NAV MAIN ================================-->
                 <div class="nav__main">
                     <ul class="nav__list">
                         <li class="nav__item">
@@ -96,7 +96,7 @@
                         </li>
                     </ul>
                 </div>
-                <!--============== NAV FOOTER ==============-->
+                <!--=============================== NAV FOOTER ===============================-->
                 <div class="nav__footer">
                     <div class="nav__footer-icons">
                         <a href="https://github.com/Dresk76" target="_blank" class="nav__footer-icon">
@@ -122,11 +122,12 @@
     </header>
 
 
-    <!--================= MAIN =================-->
+
+    <!--======================================== MAIN ========================================-->
     <main class="main">
 
 
-        <!--=============== HOME ===============-->
+        <!--====================================== HOME ======================================-->
         <section class="home" id="home">
             <div class="home__container">
                 <div class="home__content">
@@ -197,7 +198,7 @@
         </section>
 
 
-        <!--============== ABOUT ==============-->
+        <!--====================================== ABOUT ======================================-->
         <section class="about section" id="about">
             <h2 data-heading="My introduction" class="section__title">About Me</h2>
 
@@ -238,13 +239,13 @@
         </section>
 
 
-        <!--============== SKILLS ==============-->
+        <!--===================================== SKILLS =====================================-->
         <section class="skills" id="skills">
             <h2 data-heading="My technical level" class="section__title">Skills</h2>
 
             <div class="skills__container container grid">
                 <div>
-                    <!--============== SKILLS 1 ==============-->
+                    <!--============================== SKILLS 1 ==============================-->
                     <div class="skills__content skills__open">
                         <div class="skills__header">
                             <i class="uil uil-brackets-curly skills__icon"></i>
@@ -300,7 +301,7 @@
                         </div>
                     </div>
 
-                    <!--============== SKILLS 2 ==============-->
+                    <!--============================== SKILLS 2 ==============================-->
                     <div class="skills__content skills__close">
                         <div class="skills__header">
                             <i class="uil uil-server-network skills__icon"></i>
@@ -358,7 +359,7 @@
                 </div>
 
                 <div>
-                    <!--============== SKILLS 3 ==============-->
+                    <!--============================== SKILLS 3 ==============================-->
                     <div class="skills__content skills__close">
                         <div class="skills__header">
                             <i class="uil uil-swatchbook skills__icon"></i>
@@ -408,27 +409,27 @@
         </section>
 
 
-        <!--=============== QUALIFICATION ===============-->
+        <!--================================== QUALIFICATION ==================================-->
         <section class="qualification section">
             <h2 data-heading="My personal journey" class="section__title">Qualification</h2>
 
             <div class="qualification__container container">
                 <div class="qualification__tabs">
-                    <div class="qualification__button button--flex">
+                    <div class="qualification__button button--flex qualification__active" data-target="#education">
                         <i class="uil uil-graduation-cap qualification__icon"></i>
                         Education
                     </div>
 
-                    <div class="qualification__button button--flex">
+                    <div class="qualification__button button--flex" data-target="#work">
                         <i class="uil uil-briefcase-alt qualification__icon"></i>
                         Work
                     </div>
                 </div>
 
                 <div class="qualification__sections">
-                    <!--=============== QUALIFICATION CONTENT 1 ===============-->
-                    <div class="qualification__content">
-                        <!--=============== QUALIFICATION 1 ===============-->
+                    <!--======================= QUALIFICATION CONTENT 1========================-->
+                    <div class="qualification__content qualification__active" data-content id="education">
+                        <!--========================= QUALIFICATION 1 =========================-->
                         <div class="qualification__data">
                             <div>
                                 <h3 class="qualification__title">Computer Enginner</h3>
@@ -445,7 +446,7 @@
                             </div>
                         </div>
 
-                        <!--=============== QUALIFICATION 2 ===============-->
+                        <!--========================= QUALIFICATION 2 =========================-->
                         <div class="qualification__data">
                             <div></div>
 
@@ -464,7 +465,7 @@
                             </div>
                         </div>
 
-                        <!--=============== QUALIFICATION 3 ===============-->
+                        <!--========================= QUALIFICATION 3 =========================-->
                         <div class="qualification__data">
                             <div>
                                 <h3 class="qualification__title">Web Development</h3>
@@ -481,7 +482,7 @@
                             </div>
                         </div>
 
-                        <!--=============== QUALIFICATION 4 ===============-->
+                        <!--========================= QUALIFICATION 4 =========================-->
                         <div class="qualification__data">
                             <div></div>
 
@@ -501,9 +502,9 @@
                         </div>
                     </div>
 
-                    <!--=============== QUALIFICATION CONTENT 2 ===============-->
-                    <div class="qualification__content">
-                        <!--=============== QUALIFICATION 1 ===============-->
+                    <!--======================= QUALIFICATION CONTENT 2 =======================-->
+                    <div class="qualification__content" data-content id="work">
+                        <!--========================= QUALIFICATION 1 =========================-->
                         <div class="qualification__data">
                             <div>
                                 <h3 class="qualification__title">Sotware Enginner</h3>
@@ -520,7 +521,7 @@
                             </div>
                         </div>
 
-                        <!--=============== QUALIFICATION 2 ===============-->
+                        <!--========================= QUALIFICATION 2 =========================-->
                         <div class="qualification__data">
                             <div></div>
 
@@ -539,7 +540,7 @@
                             </div>
                         </div>
 
-                        <!--=============== QUALIFICATION 3 ===============-->
+                        <!--========================= QUALIFICATION 3 =========================-->
                         <div class="qualification__data">
                             <div>
                                 <h3 class="qualification__title">Ui Designer</h3>
@@ -561,16 +562,150 @@
         </section>
 
 
-        <!--================= SERVICES =================-->
+        <!--===================================== SERVICES =====================================-->
+        <section class="services section" id="services">
+            <h2 data-heading="What y offer" class="section__title">Services</h2>
+
+            <div class="services__container container grid">
+                <!--=============================== SERVICES 1  ===============================-->
+                <div class="services__content">
+                    <div>
+                        <i class="uil uil-web-grid services__icon"></i>
+                        <h3 class="services__title">Ui/Ux <br> Designer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        View More
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Ui/Ux <br> Designer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I develop the user interface.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Web page development.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I create ux element interactions.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I position your company brand.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--=============================== SERVICES 2  ===============================-->
+                <div class="services__content">
+                    <div>
+                        <i class="uil uil-arrow services__icon"></i>
+                        <h3 class="services__title">Frontend <br> Developer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        View More
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Frontend <br> Developer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I develop the user interface.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Web page development.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I create ux element interactions.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I position your company brand.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--=============================== SERVICES 3  ===============================-->
+                <div class="services__content">
+                    <div>
+                        <i class="uil uil-pen services__icon"></i>
+                        <h3 class="services__title">Branding <br> Designer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        View More
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Branding <br> Designer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I develop the user interface.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Web page development.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I create ux element interactions.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I position your company brand.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-        <!--================= PORTFOLIO =================-->
+        <!--===================================== PORTFOLIO =====================================-->
+        <section class="portfolio section" id="portfolio">
+            <h2 data-heading="Most recent work" class="section__title">Portfolio</h2>
+
+            
+        </section>
+
+
+
+
+
+
+
+        <!--======================================= HEADER =======================================-->
 
     </main>
 
 
 
-
-    <!--============== SCRIPT JS ==============-->
+    <!--===================================== SCRIPT JS =====================================-->
     <script src="Assets/js/script.js"></script>
 </html>
