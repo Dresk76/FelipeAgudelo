@@ -42,7 +42,7 @@
     --font-light: 300;
     --font-regular: 400;
     --font-medium: 500;
-    --font-semibold: 700;
+    --font-semi-bold: 700;
     --font-bold: 800;
     --font-black: 900;
 
@@ -94,6 +94,7 @@ body.dark-theme {
 
 
 
+
 /* ============================= VARIABLES DARK THEME ============================= */
 .change-theme {
     margin-top: 12rem;
@@ -105,9 +106,9 @@ body.dark-theme {
 
 /* ================================ BASE ================================ */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -115,6 +116,7 @@ html {
 }
 
 body {
+    margin: 0 0 var(--header-height) 0;
     font-family: var(--font-neue);
     font-size: var(--normal-font-size);
     background-color: var(--body-color);
@@ -123,7 +125,7 @@ body {
 
 h1, h2, h3, h4 {
     color: var(--title-color);
-    font-weight: var(--font-semibold);
+    font-weight: var(--font-semi-bold);
 }
 
 ul {
@@ -160,7 +162,6 @@ input {
 /* ============================ REUSABLE CSS CLASSES ============================ */
 .section {
     padding: 2rem 0 4rem;
-    /* padding-bottom: 10rem; */
 }
 
 .section__title {
@@ -178,7 +179,9 @@ input {
 }
 
 
-/* ======= LAYOUT ======= */
+
+
+/* =================================== LAYOUT =================================== */
 .container {
     max-width: 768px;
     margin-left: var(--mb-1-5);
@@ -195,7 +198,7 @@ input {
     position: fixed;
     top: 0;
     left: 0;
-    padding-block: 2rem;
+    padding-block: 0.8rem;
     z-index: var(--z-fixed);
     border-bottom: 1px solid rgba(255, 255, 255, .1);
     background: var(--body-color);
@@ -207,6 +210,7 @@ input {
 /* ================================ NAV ================================ */
 .nav {
     max-width: 968px;
+    height: var(--header-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -217,11 +221,11 @@ input {
 }
 
 .nav__logo-img {
-    width: 3.75rem;
+    width: 3rem;
 }
 
 
-/* Boton Menu */
+/* ------------------ Boton Menu ------------------ */
 .nav__toggle-wrapper {
     display: flex;
     align-items: center;
@@ -230,7 +234,7 @@ input {
 
 .nav__texto-menu {
     text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     letter-spacing: 1px;
     color: var(--diffuse-white);
     transition: .3s;
@@ -242,12 +246,12 @@ input {
 }
 
 .nav__toggle {
-    width: 3.125rem;
+    width: 2.5rem;
     height: 1.063rem;
 }
 
 .line {
-    width: 3.125rem;
+    width: 2.5rem;
     height: 1px;
     background-color: var(--diffuse-white);
     transition: all .3s;
@@ -326,7 +330,7 @@ input {
     visibility: visible;
 }
 
-/* Show Menu */
+/* ------------------ Show Menu ------------------ */
 .show-menu {
     transition: 0.5s cubic-bezier(.02, .19, 0, .96) 0.8s;
     transform: translateX(0);
@@ -345,8 +349,8 @@ input {
 }
 
 .nav__logo-two {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -373,7 +377,7 @@ input {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding-inline: 2rem;
+    padding-inline: 1rem;
 }
 
 .nav__link {
@@ -447,11 +451,12 @@ input {
 
 /* ================================ HOME ================================ */
 .home__container {
+    width: 100%;
+    height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,.85), rgba(0,0,0,.85)), url('../img/attatck-on-titan.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 100vh;
     background-color: rgba(0, 0, 0, .85);
     position: relative;
 }
@@ -489,6 +494,10 @@ input {
     color: var(--first-color-alt);
 }
 
+.home__img-svg {
+    width: 200px;
+}
+
 .home_greeting {
     font-size: 1.125rem;
     font-weight: var(--font-light);
@@ -498,8 +507,8 @@ input {
 
 .home__title {
     text-align: center;
-    font-size: 35px;
-    font-weight: var(--font-semibold);
+    font-size: 25px;
+    font-weight: var(--font-semi-bold);
     letter-spacing: 20px;
     text-transform: uppercase;
     color: var(--first-color);
@@ -511,12 +520,13 @@ input {
     color: var(--diffuse-white);
 }
 
-.home__desc {
+.home__welcome {
     font-size: 1.375rem;
     font-weight: var(--font-light);
     margin: 3.75rem 0 0 9rem;
     color: var(--diffuse-white);
 }
+
 
 
 /* Scroll Down */
@@ -669,7 +679,7 @@ input {
 
 /* ================================ ABOUT ================================ */
 .about__img {
-    width: 250px;
+    width: 200px;
     border-radius: .5rem;
     justify-self: center;
     align-self: center;
@@ -688,7 +698,7 @@ input {
 
 .about__info-title {
     font-size: var(--h2-font-size);
-    font-weight: var(--font-semibold);
+    font-weight: var(--font-semi-bold);
     color: var(--title-color);
 }
 
@@ -1321,26 +1331,211 @@ input {
 
 
 /* ================================ MEDIA QUERIES ================================ */
+
 /* --------------- For small devices --------------- */
+/* Galaxy Fold */
 @media screen and (max-width: 350px) {
     .container {
         margin-left: var(--mb-1);
         margin-right: var(--mb-1);
     }
+
+
+    /* -------------------- Skills -------------------- */
+    .skills__title {
+        font-size: var(--normal-font-size);
+    }
+
+
+    /* ------------------- Services ------------------- */
+    .services__container {
+        grid-template-columns: max-content;
+        justify-content: center;
+    }
+
+    .services__content {
+        padding-right: 3.5rem;
+    }
+
+    .services__modal {
+        padding: 0 .5rem;
+    }
+
+
+    /* ---------------- Project In Mind ---------------- */
+    .project__img {
+        width: 200px;
+    }
+
+
+    /* ------------------ Testimonial ------------------ */
+    .testimonial__data,
+    .testimonial__header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial__img {
+        margin-right: 0;
+        margin-bottom: var(--mb-0-25);
+    }
+
+    .testimonial__data,
+    .testimonial__description {
+        text-align: center;
+    }
+
 }
 
 
 
+/* 582 */
 /* -------------- For medium devices -------------- */
+@media screen and (min-width: 568px) {
+    /* --------------------- About --------------------- */
+    .about__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* -------------------- Skills -------------------- */
+    .skills__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* ---------------- Qualification ---------------- */
+    .qualification__sections {
+        display: grid;
+        grid-template-columns: .6fr;
+        justify-content: center;
+    }
+
+
+    /* ------------------ Portfolio ------------------ */
+    .portfolio__content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* --------------- Project In Mind --------------- */
+    .project__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* ------------------- Contact ------------------- */
+    .contact__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* -------------------- Footer -------------------- */
+    .footer__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+
+/* 780 */
+@media screen and (min-width: 768px) {
+    .container {
+        margin-left: auto;   
+        margin-right: auto;   
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .section {
+        padding: 6rem 0 2rem;
+    }
+
+    .main {
+        padding: 0 1rem;
+    }
+
+
+    /* -------------------- Header -------------------- */
+    .header {
+        padding: 1rem 2rem;
+    }
+
+    .nav__toggle-wrapper,
+    .nav__icon,
+    .nav__header,
+    .nav__footer
+    {
+        display: none;
+    }
+
+
+    /* ------------------- Nav Main ------------------- */
+    .nav__list {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    .nav__link {
+        font-size: 1rem;
+    }
+
+    .change-theme {
+        margin-top: 0;
+        font-size: 1.3rem;
+    }
+
+
+    /* -------------------- About -------------------- */
+    .about__container {
+        column-gap: 5rem;
+    }
+
+    .about__img {
+        width: 350px;
+    }
+
+    .about__description {
+        text-align: initial;
+    }
+
+    .about__info {
+        justify-content: space-between;
+    }
+
+    .about__buttons {
+        justify-content: initial;
+    }
+
+
+    /* ---------------- Qualification ---------------- */
+    .qualification__tabs {
+        justify-content: center;
+    }
+
+    .qualification__button {
+        margin: 0 var(--mb-1);
+    }
+
+    .qualification__sections {
+        grid-template-columns: .5fr;
+    }
+
+
+
+
+
+
+    /* -------------------- Footer -------------------- */
+    .footer__container {
+        padding: 0 1rem;
+    }
+
+}
 /* --------------- For large devices --------------- */
-
-
-
-
-
-
-
-
 
 
 
@@ -1348,3 +1543,13 @@ input {
 
 /* ================================== PORTFOLIO ================================== */
 /* ------------------ Nav Footer ------------------ */
+
+
+
+
+
+
+
+
+
+
