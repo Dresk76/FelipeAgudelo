@@ -146,9 +146,9 @@ let swiperPortfolio = new Swiper(".portfolio__container", {
 
 /* ============================= TESTIMONIAL ============================= */
 let swiperTestimonial = new Swiper(".testimonial__container", {
+    spaceBetween: 48,
     loop: true,
     grabCursor: true,
-    spaceBetween: 48,
 
     autoplay: {
         delay: 2500,
@@ -168,6 +168,27 @@ let swiperTestimonial = new Swiper(".testimonial__container", {
     },
 });
 
+
+
+/* =========================== INPUT ANIMATION =========================== */
+const inputs = document.querySelectorAll(".contact__input");
+
+function focusFunc() {
+    let parent = this.parentNode;
+    parent.classList.add('focus');
+}
+
+function blurFunc() {
+    let parent = this.parentNode;
+    if (this.value == '') {
+        parent.classList.remove('focus');
+    }
+}
+
+inputs.forEach((input) => {
+    input.addEventListener('focus', focusFunc);
+    input.addEventListener('blur', blurFunc);
+})
 
 
 
@@ -197,16 +218,45 @@ window.addEventListener('scroll', scrollActive);
 
 
 
-
 /* ======================= CHANGE BACKGROUND HEADER ======================= */
-function scrollHeader()
-{
-    const nav = document.getElementById('header')
-
-    if (this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+function scrollHeader() {
+    const header = document.getElementById('header');
+    let scrollYValue = 1;
+    
+    for (let breakpoint in breakpoints) {
+        if (window.innerWidth >= breakpoint) {
+            scrollYValue = breakpoints[breakpoint][0];
+        }
+    }
+    
+    if (this.scrollY >= scrollYValue) {
+        header.classList.add('scroll-header');
+    } 
+    else 
+    {
+        header.classList.remove('scroll-header');
+    }
 }
+
 window.addEventListener('scroll', scrollHeader);
 
+const breakpoints = {
+    280: [650],
+    400: [900],
+    568: [920],
+    768: [920],
+    1024: [920],
+    1216: [920],
+    1440: [1020],
+    1920: [1415]
+};
+
+
+
+/* =================== VER EL EJE Y ACTUAL POR CONSOLA =================== */
+window.addEventListener('scroll', function() {
+    console.log(window.scrollY);
+});
 
 
 
@@ -218,7 +268,6 @@ function scrollUp()
     if (this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp);
-
 
 
 
@@ -254,10 +303,41 @@ themeButton.addEventListener('click', () => {
 })
 
 
+/* ============================ GSAP ANIMATION ============================ */
+
+/* --------------------- Home --------------------- */
+gsap.from('.home__img', {opacity: 0, duration: 2, delay:.5, x:60})
+gsap.from('.home__data', {opacity: 0, duration: 2, delay:.8, y:25})
+gsap.from('.home_greeting, .home__title, .home__subtitle, .home__welcome', {opacity: 0, duration: 2, delay:1, y:25, ease:'expo.out', stagger:.2})
+gsap.from('.home__social-icon', {opacity: 0, duration: 2, delay:2, y:25, ease:'expo.out', stagger:.2})
+
+/* --------------------- Nav --------------------- */
+gsap.from('.nav__logo-a-img, .nav__toggle-wrapper', {opacity: 0, duration: 2, delay:1.5, y:25, ease:'expo.out', stagger:.2})
+gsap.from('.nav__item', {opacity: 0, duration: 2, delay:1.8, y:25, ease:'expo.out', stagger:.2})
+
+
+// Esperar 2.5 segundos
+setTimeout(function() {
+    // Obtener el botón y agregar la clase "fade-in"
+    var scrollButton = document.querySelector('.home__scroll-button');
+    scrollButton.classList.add('fade-in');
+}, 1100);
+
+
+// Cuando la página se haya cargado completamente 
+// window.addEventListener('load', function() {
+//     // Obtener el botón y agregar la clase "fade-in"
+//     var scrollButton = document.querySelector('.home__scroll-button');
+//     scrollButton.classList.add('fade-in');
+// });
 
 
 
 /* ============================= TESTIMONIAL ============================= */
+
+/* ------------------ Nav Footer ------------------ */
+
+
 
 
 
