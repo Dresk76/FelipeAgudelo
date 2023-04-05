@@ -1,3 +1,15 @@
+/* =============================== LOADER =============================== */
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+
+    loader.classList.add("loader-hidden");
+
+    loader.addEventListener("transitionend", () => {
+        document.body.removeChild("loader");
+    })
+})
+
+
 /* ========================= MENU SHOW & HIDDEN ========================= */
 const navMenu = document.getElementById('nav-menu'),
       navOpen = document.getElementById('nav-toggle'),
@@ -247,15 +259,14 @@ const breakpoints = {
     768: [920],
     1024: [920],
     1216: [920],
-    1440: [1020],
-    1920: [1415]
+    1480: [1000],
 };
 
 
 
 /* =================== VER EL EJE Y ACTUAL POR CONSOLA =================== */
 window.addEventListener('scroll', function() {
-    console.log(window.scrollY);
+    // console.log(window.scrollY);
 });
 
 
@@ -313,7 +324,7 @@ gsap.from('.home__social-icon', {opacity: 0, duration: 2, delay:2, y:25, ease:'e
 
 /* --------------------- Nav --------------------- */
 gsap.from('.nav__logo-a-img, .nav__toggle-wrapper', {opacity: 0, duration: 2, delay:1.5, y:25, ease:'expo.out', stagger:.2})
-gsap.from('.nav__item', {opacity: 0, duration: 2, delay:1.8, y:25, ease:'expo.out', stagger:.2})
+gsap.from('.nav__item, switch', {opacity: 0, duration: 2, delay:1.8, y:25, ease:'expo.out', stagger:.2})
 
 
 // Esperar 2.5 segundos
@@ -334,6 +345,7 @@ setTimeout(function() {
 
 
 /* ============================= TESTIMONIAL ============================= */
+
 
 /* ------------------ Nav Footer ------------------ */
 
