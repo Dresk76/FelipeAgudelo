@@ -20,6 +20,39 @@
 </head>
 
 <body>
+    <!--======================================= LOADER =======================================-->
+    <div class="loader" id="loader">
+        <div id="container">
+            <div class="dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="dots2">
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+                <div class="dot2"></div>
+            </div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+
+
     <!--======================================= HEADER =======================================-->
     <header class="header" id="header">
         <nav class="nav container">
@@ -93,11 +126,12 @@
                                 <i class="uil uil-message nav__icon"></i> Contactme
                             </a>
                         </li>
-                        <!--========================== Theme change button ==========================-->
-                        <li class="nav__item">
-                            <i class="uil uil-moon nav__link change-theme" id="theme-button"></i>
-                        </i>
                     </ul>
+                    <!--========================== Theme change button ==========================-->
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider" id="theme-button"></span>
+                    </label>
                 </div>
 
                 <!--=============================== NAV FOOTER ===============================-->
@@ -153,15 +187,15 @@
                         </a>
                     </div>
 
-                    <div class="home__cont-img">
-                        <img class="home__img" src="Assets/img/home-img.png" alt="Felipe Agudelo">
-                    </div>
-
                     <div class="home__data">
                         <p class="home_greeting">Hola, mi nombre es</p>
                         <h1 class="home__title">Felipe <br> Agudelo</h1>
                         <h3 class="home__subtitle">Desarrollador de Videojuegos 2D</h3>
                         <p class="home__welcome">Welcome To My World</p>
+                    </div>
+
+                    <div class="home__cont-img">
+                        <img class="home__img" src="Assets/img/home-img.png" alt="Felipe Agudelo">
                     </div>
                 </div>
 
@@ -192,19 +226,27 @@
 
         <!--====================================== ABOUT ======================================-->
         <section class="about section" id="about">
-            <h2 data-heading="My introduction" class="section__title">About Me</h2>
+            <h2 data-heading="Mi introducción" class="section__title">Sobre mi</h2>
 
             <div class="about__container container grid">
-                <img src="Assets/img/about-img.jpg" alt="" class="about__img">
+                <div class="card">
+                    <div class="card-info">
+                        <img src="Assets/img/about-me.png" class="about__img alt="Felipe Agudelo">
+                    </div>
+                </div>
 
                 <div class="about__data">
                     <p class="about__description">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                        Dignissimos dicta dolorum asperiores neque, eos quo cum labore 
-                        atque quia voluptatem?
+                        Me especializo en el desarrollo de videojuegos en 2D, me apasiona contar historias 
+                        y entretener a las personas a través de los videojuegos. Siempre busco aprender y 
+                        mejorar mis habilidades para crear experiencias únicas e inolvidables. Como desarrollador 
+                        de videojuegos en 2D, tengo habilidades sólidas en programación y en la nivelación de 
+                        iluminación y escenarios, así como en la implementación de efectos de sonido y diseño 
+                        de audio. En el futuro, espero contribuir a la industria de los videojuegos con ideas 
+                        innovadoras y creativas que marquen la diferencia.
                     </p>
 
-                    <div class="about__info">
+                    <!-- <div class="about__info">
                         <div>
                             <span class="about__info-title">08+</span>
                             <span class="about__info-name">Years <br> experience</span>
@@ -219,7 +261,7 @@
                             <span class="about__info-title">05+</span>
                             <span class="about__info-name">Companies <br> worked</span>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="about__buttons">
                         <a href="Assets/pdf/Currículum Felipe Agudelo Español.pdf" target="_blank" alt="CV-Felipe_Agudelo" class="button">
@@ -1009,6 +1051,7 @@
     </main>
 
     <!--======================================= HEADER =======================================-->
+    
 
     
     <!--======================================== GSAP ========================================-->

@@ -17,25 +17,27 @@
     --text-color: hsl(var(--hue-color), 8%, 45%);
     --text-color-light: hsl(var(--hue-color), 8%, 65%);
     --input-color: hsl(var(--hue-color), 70%, 96%);
-    --body-color: hsl(var(--hue-color), 60%, 99%);
+    /* --body-color: hsl(var(--hue-color), 60%, 99%); */
+    --body-color: #000000;
     --container-color: #FFF;
     --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
     --white-color: #FFF;
     --diffuse-white: hsl(0, 0%, 60%);
+    --background: linear-gradient(to left, #00566f 0%, #E8021D 100%);
 
 
     /* ====================== FONT AND TIPOGRAPHY ====================== */
     --font-neue: 'Neue Kabel', sans-serif;
 
     /* ======= .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... ======= */
-    --big-font-size: 2rem;
-    --h1-font-size: 1.5rem;
-    --h2-font-size: 1.25rem;
-    --h3-font-size: 1.125rem;
-    --normal-font-size: .938rem;
-    --small-font-size: .813rem;
-    --smaller-font-size: .75rem;
+    --big-font-size: 2.5rem;
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1.125rem;
+    --small-font-size: .938rem;
+    --smaller-font-size: .813rem;
 
     /* ========================== FONT WEIGHT ========================== */
     --font-extralight: 200;
@@ -55,11 +57,15 @@
     --mb-2: 2rem;
     --mb-2-5: 2.5rem;
     --mb-3: 3rem;
+    --mb-3-5: 3.5rem;
+    --mb-4: 4rem;
+    --mb-4-5: 4.5rem;
 
     /* ============================= Z INDEX ============================= */
     --z-tooltip: 10;
     --z-fixed: 100;
     --z-modal: 1000;
+    --z-loader: 10000;
 }
 
 
@@ -86,7 +92,8 @@ body.dark-theme {
     --title-color: hsl(var(--hue-color), 8%, 95%);
     --text-color: hsl(var(--hue-color), 8%, 75%);
     --input-color: hsl(var(--hue-color), 29%, 16%);
-    --body-color: hsl(var(--hue-color), 28%, 12%);
+    /* --body-color: hsl(var(--hue-color), 28%, 12%); */
+    --body-color: hsl(var(--hue-color), 60%, 99%);
     --container-color: hsl(var(--hue-color), 29%, 16%);
     --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
@@ -152,13 +159,14 @@ input {
 
 /* ============================ REUSABLE CSS CLASSES ============================ */
 .section {
-    padding: 2rem 0 4rem;
+    padding: 6rem 0 4rem;
 }
 
 .section__title {
     font-size: var(--h1-font-size);
     margin-bottom: var(--mb-3);
     text-align: center;
+    color: var(--diffuse-white);
 }
 
 .section__title::after {
@@ -167,6 +175,380 @@ input {
     font-size: var(--small-font-size);
     font-weight: var(--font-medium);
     color: var(--first-color);
+}
+
+
+
+
+/* ==================================== LOADER ==================================== */
+
+.circle {
+    position: relative;
+    left: -100px;
+    width: 0;
+    height: 0;
+    border: 50px solid #FDD835;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: move 5s linear 0s infinite normal forwards;
+}
+
+.circle:before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 0;
+    height: 0;
+    border: 50px solid #FDD835;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: chomp1 .25s ease-in-out 0s infinite normal forwards;
+}
+
+.circle:after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 0;
+    height: 0;
+    border: 50px solid #FDD835;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: chomp2 .25s ease-in-out 0s infinite normal forwards;
+}
+
+.loader {
+    position: relative;
+    top: 50px;
+    width: 300px;
+    height: 0px;
+    border-top: 10px dotted black;
+    animation: loader_4013 5s ease-in-out 0s infinite normal forwards;
+}
+
+.dots {
+    position: relative;
+    top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    margin: 0 10px;
+    border-radius: 50%;
+    background: #00566f;
+    animation: dot1 5s linear 0s infinite none normal;
+}
+
+.dot:nth-child(1) {
+    animation-delay: 0s
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.25s
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.5s
+}
+
+.dot:nth-child(4) {
+    animation-delay: 0.75s
+}
+
+.dot:nth-child(5) {
+    animation-delay: 1s
+}
+
+.dot:nth-child(6) {
+    animation-delay: 1.25s
+}
+
+.dot:nth-child(7) {
+    animation-delay: 1.5s
+}
+
+.dot:nth-child(8) {
+    animation-delay: 1.75s
+}
+
+.dot:nth-child(9) {
+    animation-delay: 1.9s
+}
+
+.dot:nth-child(10) {
+    animation-delay: 2.1s
+}
+
+.dots2 {
+    position: relative;
+    top: 50px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot2 {
+    position: relative;
+    left: -10px;
+    width: 10px;
+    height: 10px;
+    margin: 0 10px;
+    border-radius: 50%;
+    background: #E8021D;
+    opacity: 0;
+    animation: dot2 5s linear 0s infinite none normal;
+}
+
+.dot2:nth-child(10) {
+    animation-delay: 2.5s
+}
+
+.dot2:nth-child(9) {
+    animation-delay: 2.75s
+}
+
+.dot2:nth-child(8) {
+    animation-delay: 3.0s
+}
+
+.dot2:nth-child(7) {
+    animation-delay: 3.25s
+}
+
+.dot2:nth-child(6) {
+    animation-delay: 3.5s
+}
+
+.dot2:nth-child(5) {
+    animation-delay: 3.75s
+}
+
+.dot2:nth-child(4) {
+    animation-delay: 4.0s
+}
+
+.dot2:nth-child(3) {
+    animation-delay: 4.25s
+}
+
+.dot2:nth-child(2) {
+    animation-delay: 4.5s
+}
+
+.dot2:nth-child(1) {
+    animation-delay: 4.6s
+}
+
+@keyframes chomp1 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(45deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes chomp2 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes move {
+    0%, 100% {
+    left: -100px;
+    }
+
+    0%, 48% {
+        transform: rotateY(0deg);
+    }
+
+    50%, 100% {
+        transform: rotateY(180deg);
+    }
+
+    50% {
+        left: 100%;
+    }
+}
+
+@keyframes loader_4013 {
+    0%, 100% {
+        border-top: 10px dotted #00566f;
+        border-bottom: 10px dotted #00566f;
+    }
+
+    0%, 48% {
+        border-top: 10px dotted #00566f;
+        border-bottom: 10px dotted #00566f;
+    }
+
+    50%, 100% {
+        border-top: 10px dotted #E8021D;
+        border-bottom: 10px dotted #E8021D;
+    }
+
+    50% {
+        border-top: 10px dotted #E8021D;
+        border-bottom: 10px dotted #E8021D;
+    }
+}
+@keyframes dot1 {
+    0%,4% {
+        background: #00566f;
+        opacity: 1;
+    }
+
+    5%,94% {
+        background: #E8021D;
+        opacity: 0;
+    }
+
+    95%,100% {
+        background: #00566f;
+        opacity: 1;
+    }
+}
+
+@keyframes dot2 {   
+    0%,4% {
+        background: #E8021D;
+        opacity: 1;
+    }
+
+    5%,94% {
+        opacity: 0;
+    }
+
+    95%,100% {
+        background: #E8021D;
+        opacity: 1;
+    }
+}
+
+
+.loader {
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-loader);
+    clip-path: circle(70% at 50% 50%);
+    transition: clip-path 1s ease-in-out;
+}
+
+.loader-hidden {
+    clip-path: circle(0.0% at 50% 50%);
+
+}
+
+
+
+
+/* ============================== SWITCH DARK THEME ============================== */
+/* The switch - the box around the slider */
+.switch {
+    font-size: 0.9em;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+    margin-left: 1.8em;
+}
+
+  /* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+  /* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--first-color);
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 20px;
+    left: 0.3em;
+    bottom: 0.3em;
+    background-color: var(--first-color);
+    box-shadow: inset 2px -2px 0 1.9px #fff;
+    transition: .4s;
+    animation: anima1 0.3s linear;
+}
+
+@keyframes anima1 {
+    0% {
+        transform: translateX(1.5em);
+    }
+
+    80% {
+        transform: translateX(-0.3em);
+    }
+
+    100% {
+        transform: translateX(0em);
+    }
+}
+
+.switch input:checked + .slider:before {
+    background-color: #fff;
+    box-shadow: none;
+    transform: translateX(1.5em);
+    animation: anima 0.3s linear;
+}
+
+@keyframes anima {
+    0% {
+        transform: translateX(0px)
+    }
+
+    80% {
+        transform: translateX(1.6em)
+    }
+
+    100% {
+        transform: translateX(1.4em)
+    }
 }
 
 
@@ -360,6 +742,15 @@ input {
 
 
 /* ------------------- Nav Main ------------------- */
+.nav__main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 0;
+    /* background-color: teal; */
+}
+
 .nav__list {
     display: flex;
     flex-direction: column;
@@ -382,13 +773,6 @@ input {
 
 .nav__icon {
     margin-right: 1.8rem;
-}
-
-
-/* ------------- VARIABLES DARK THEME ------------- */
-.change-theme {
-    margin-top: 10rem;
-    cursor: pointer;
 }
 
 
@@ -438,7 +822,7 @@ input {
 /* ----------- Change background header ----------- */
 .scroll-header {
     background-color: var(--body-color);
-    box-shadow: 0 1px 6px rgba(0, 0, 0, .4);
+    box-shadow: 0 1px 12px rgba(255, 255, 255, .2);
 }
 
 
@@ -463,12 +847,13 @@ input {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    /* background-color: tomato; */
 }
 
 .home__social {
     position: absolute;
-    top: 8rem;
-    right: 1.5rem;
+    bottom: 11rem;
+    left: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -483,25 +868,31 @@ input {
     color: var(--first-color);
 }
 
+.home__data {
+    width: 83%;
+    margin: 6rem auto 0;
+    /* background-color: thistle; */
+}
 .home__cont-img {
-    height: 300px;
+    height: 20rem;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 40px;
-    margin: 3rem 0 1rem;
+    padding-top: 2.5rem;
+    padding-left: 5rem;
+    /* background-color: teal; */
 }
 
 .home__img {
-    width: 200px;
+    width: 13rem;
 }
 
 .home_greeting {
     text-align: start;
     font-size: 20px;
     font-weight: var(--font-light);
-    padding: 0 2rem 1rem;
+    padding-bottom: 1rem;
     color: var(--diffuse-white);
 }
 
@@ -525,7 +916,7 @@ input {
     text-align: end;
     font-size: 20px;
     font-weight: var(--font-light);
-    padding: 4rem 2rem 0;
+    padding-top: 3rem;
     color: var(--diffuse-white);
 }
 
@@ -687,16 +1078,68 @@ input {
 
 
 /* ================================ ABOUT ================================ */
-.about__img {
-    width: 200px;
-    border-radius: .5rem;
+
+/* --------------------- Card --------------------- */
+.card {
+    width: 190px;
+    height: 250px;
+    padding: 5px;
+    border-radius: .6rem;
+    overflow: visible;
+    background: #E8021D;
+    background: var(--background);
     justify-self: center;
-    align-self: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--mb-1);
+}
+
+.card::after {
+    position: absolute;
+    content: "";
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.8);
+    filter: blur(25px);
+    background: #E8021D;
+    background: var(--background);
+    transition: opacity .5s;
+}
+
+.card-info {
+    --color: #181818;
+    background: var(--color);
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    border-radius: .4rem;
+}
+
+/*Hover*/
+.card:hover::after {
+    opacity: 0;
+}
+
+
+/* -------------------- About -------------------- */
+
+
+.about__img {
+    width: 90%;
+    align-self: flex-end;
 }
 
 .about__description {
     text-align: center;
-    margin-bottom: var(--mb-2-5);
+    margin-bottom: var(--mb-3);
 }
 
 .about__info {
@@ -725,6 +1168,7 @@ input {
     display: flex;
     justify-content: center;
 }
+
 
 
 
@@ -1422,6 +1866,13 @@ textarea.contact__input {
     }
 
 
+    /* --------------- Switch Dark theme --------------- */
+    .switch {
+        font-size: 0.65em;
+        margin-left: 1.5em;
+    }
+
+
     /* -------------------- Header -------------------- */
     .header {
         padding-block: 0.8rem;
@@ -1454,7 +1905,7 @@ textarea.contact__input {
 
     /* ------------------ Nav Header ------------------ */
     .nav__header {
-        padding-inline: 1rem;
+        padding-inline: 1.5rem;
         padding-block: 0.8rem;
     }
 
@@ -1467,7 +1918,7 @@ textarea.contact__input {
     /* ------------------- Nav Main ------------------- */
     .nav__list {
         gap: 1.4rem;
-        padding-inline: 1rem;
+        padding-inline: 1.5rem;
     }
 
     .nav__link {
@@ -1476,12 +1927,6 @@ textarea.contact__input {
 
     .nav__icon {
         margin-right: 1.5rem;
-    }
-
-
-    /* ------------- VARIABLES DARK THEME ------------- */
-    .change-theme {
-        margin-top: 5rem;
     }
 
 
@@ -1509,8 +1954,8 @@ textarea.contact__input {
 
     /* --------------------- Home --------------------- */
     .home__social {
-        top: 6.5rem;
-        right: 1.3rem;
+        bottom: 10rem;
+        left: 1rem;
         gap: 1.2rem;
     }
 
@@ -1518,41 +1963,48 @@ textarea.contact__input {
         font-size: 1.3rem;
     }
 
+    .home__data {
+        width: 80%;
+        margin-top: 6rem;
+        /* background-color: thistle; */
+    }
+
     .home__cont-img {
-        height: 220px;
-        padding-top: 30px;
-        margin: 2rem 0 0rem;
+        height: 14rem;
+        padding-top: 2.5rem;
+        padding-left: 5rem;
+        /* background-color: teal; */
     }
 
     .home__img {
-        width: 150px;
+        width: 10.5rem;
     }
 
     .home_greeting {
         font-size: 16px;
-        padding: 0 1.3rem 1rem;
+        padding-bottom: 1rem;
     }
-
+    
     .home__title {
-        font-size: 25px;
-        letter-spacing: 10px;
-        margin-bottom: 0.1rem;
+        font-size: 22px;
+        letter-spacing: 15px;
+        margin-bottom: 0.2rem;
     }
-
+    
     .home__subtitle{
-        font-size: 16px;
+        font-size: 17px;
     }
-
+    
     .home__welcome {
         font-size: 16px;
-        padding: 2.5rem 1.3rem 0;
+        padding-top: 1rem;
     }
 
 
 
     /* Scroll Down */
     .home__scroll-button {
-        bottom: 1.5rem;
+        bottom: 1rem;
     }
 
     .home__scroll-button .home__scroll-icon::after {
@@ -1617,6 +2069,13 @@ textarea.contact__input {
 /* 582 */
 /* -------------- For medium devices -------------- */
 @media screen and (min-width: 568px) {
+    /* --------------- Switch Dark theme --------------- */
+    .switch {
+        font-size: 1em;
+        margin-left: 2.2em;
+    }
+
+
     /* -------------------- Header -------------------- */
     .header {
         padding-block: 1.2rem;
@@ -1649,7 +2108,7 @@ textarea.contact__input {
 
     /* ------------------ Nav Header ------------------ */
     .nav__header {
-        padding-inline: 2rem;
+        padding-inline: 2.2rem;
         padding-block: 1.2rem;
     }
 
@@ -1662,7 +2121,7 @@ textarea.contact__input {
     /* ------------------- Nav Main ------------------- */
     .nav__list {
         gap: 2.2rem;
-        padding-inline: 2rem;
+        padding-inline: 2.2rem;
     }
 
     .nav__link {
@@ -1671,12 +2130,6 @@ textarea.contact__input {
 
     .nav__icon {
         margin-right: 2rem;
-    }
-
-
-    /* ------------- VARIABLES DARK THEME ------------- */
-    .change-theme {
-        margin-top: 7rem;
     }
 
 
@@ -1704,50 +2157,57 @@ textarea.contact__input {
 
     /* --------------------- Home --------------------- */
     .home__social {
-        top: 8rem;
-        right: 2rem;
-        gap: 1.5rem;
+        bottom: 15rem;
+        left: 2rem;
+        gap: 1.6rem;
     }
 
     .home__social-icon {
         font-size: 1.7rem;
     }
 
+    .home__data {
+        width: 75%;
+        margin-top: 5rem;
+        /* background-color: thistle; */
+    }
+
     .home__cont-img {
-        height: 320px;
-        padding-top: 40px;
-        margin: 4rem 0 1rem;
+        height: 23rem;
+        padding-top: 4rem;
+        padding-left: 5rem;
+        /* background-color: teal; */
     }
 
     .home__img {
-        width: 220px;
+        width: 17rem;
     }
 
     .home_greeting {
-        font-size: 22px;
-        padding: 0 4rem 1rem;
+        font-size: 24px;
+        padding-bottom: 1rem;
     }
 
     .home__title {
-        font-size: 37px;
+        font-size: 45px;
         letter-spacing: 15px;
         margin-bottom: 0.2rem;
     }
 
     .home__subtitle{
-        font-size: 22px;
+        font-size: 26px;
     }
 
     .home__welcome {
-        font-size: 20px;
-        padding: 4rem 5rem 0;
+        font-size: 24px;
+        padding-top: 3rem;
     }
 
 
 
     /* Scroll Down */
     .home__scroll-button {
-        bottom: 1.8rem;
+        bottom: 1.3rem;
     }
 
     .home__scroll-button .home__scroll-icon::after {
@@ -1822,6 +2282,13 @@ textarea.contact__input {
     }
 
 
+    /* --------------- Switch Dark theme --------------- */
+    .switch {
+        font-size: 0.7em;
+        margin-left: 0em;
+    }
+
+
 
     /* -------------------- Header -------------------- */
     .header {
@@ -1846,6 +2313,12 @@ textarea.contact__input {
 
 
     /* ------------------- Nav Main ------------------- */
+    .nav__main {
+        height: auto;
+        flex-direction: row;
+        padding: 0 0;
+    }
+
     .nav__list {
         flex-direction: row;
         gap: 1.5rem;
@@ -1855,46 +2328,41 @@ textarea.contact__input {
         font-size: 1.1rem;
     }
 
-    .change-theme {
-        margin-top: 0;
-        font-size: 1.4rem;
-    }
-
 
     /* --------------------- Home --------------------- */
     .home__social {
-        top: 30rem;
+        bottom: 14rem;
         left: 2rem;
         width: 8%;
         gap: 1.7rem;
     }
 
     .home__social-icon {
-        font-size: 1.7rem;
-    }
-
-    .home__cont-img {
-        width: 50%;
-        height: 476px;
-        padding-top: 80px;
-        margin-top: 0rem;
-        order: 2;
-        align-self: flex-end;
+        font-size: 1.9rem;
     }
 
     .home__data {
         width: 50%;
-        margin: 10rem 2rem 0;
-        order: 1;
+        margin: 10rem 5rem 0;
+        /* background-color: thistle; */
+    }
+
+    .home__cont-img {
+        width: 50%;
+        height: 29.3rem;
+        padding-top: 5rem;
+        padding-left: 0;
+        align-self: flex-end;
+        /* background-color: thistle; */
     }
 
     .home__img {
-        width: 330px;
+        width: 21.5rem;
     }
 
     .home_greeting {
         font-size: 25px;
-        padding: 0 4rem 1rem;
+        padding: 0 0 1rem;
     }
 
     .home__title {
@@ -1908,7 +2376,7 @@ textarea.contact__input {
 
     .home__welcome {
         font-size: 22px;
-        padding: 3rem 0rem 0;
+        padding: 3rem 0 0;
     }
 
 
@@ -2054,6 +2522,12 @@ textarea.contact__input {
 
 /* 1058 */
 @media screen and (min-width: 1024px) {
+    /* --------------- Switch Dark theme --------------- */
+    .switch {
+        font-size: 0.8em;
+    }
+
+
     /* -------------------- Header -------------------- */
     .header {
         padding: 1.4rem 2rem;
@@ -2084,50 +2558,55 @@ textarea.contact__input {
         font-size: 1.2rem;
     }
 
-    .change-theme {
-        font-size: 1.5rem;
-    }
-
 
 
     /* --------------------- Home --------------------- */
+    .home__content {
+        height: 100vh;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        /* background-color: tomato; */
+    }
+
     .home__social {
-        top: 30rem;
+        bottom: 14rem;
         left: 2rem;
         width: 8%;
         gap: 1.8rem;
     }
 
     .home__social-icon {
-        font-size: 1.9rem;
-    }
-
-    .home__cont-img {
-        width: 50%;
-        height: 476px;
-        padding-top: 80px;
-        margin-top: -2rem;
-        order: 2;
-        align-self: flex-end;
+        font-size: 2rem;
     }
 
     .home__data {
-        width: 50%;
-        margin: 12rem 3rem 0;
-        order: 1;
+        width: 40%;
+        margin: 0;
+        margin-bottom: 18rem;
+        margin-left: 6rem;
+        /* background-color: teal; */
+    }
+
+    .home__cont-img {
+        width: 40%;
+        height: 30rem;
+        padding-top: 5rem;
+        align-self: flex-end;
+        /* background-color: thistle; */
     }
 
     .home__img {
-        width: 330px;
+        width: 22rem;
     }
 
     .home_greeting {
-        font-size: 25px;
-        padding: 0 4rem 1rem;
+        font-size: 23px;
+        padding: 0 0 1rem;
     }
 
     .home__title {
-        font-size: 40px;
+        font-size: 45px;
         margin-bottom: 0.2rem;
     }
 
@@ -2136,8 +2615,8 @@ textarea.contact__input {
     }
 
     .home__welcome {
-        font-size: 22px;
-        padding: 3rem 0rem 0;
+        font-size: 23px;
+        padding: 3rem 0 0;
     }
 
 
@@ -2213,6 +2692,12 @@ textarea.contact__input {
 
 /* 1240 */
 @media screen and (min-width: 1216px) {
+    /* --------------- Switch Dark theme --------------- */
+    .switch {
+        font-size: 0.8em;
+    }
+
+
     /* -------------------- Header -------------------- */
     .header {
         padding: 1.6rem 2rem;
@@ -2234,60 +2719,65 @@ textarea.contact__input {
         gap: 2rem;
     }
 
-    .change-theme {
-        font-size: 1.55rem;
-    }
-
 
 
     /* --------------------- Home --------------------- */
+    .home__content {
+        height: 100vh;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        /* background-color: tomato; */
+    }
+
     .home__social {
-        top: 30rem;
+        bottom: 14rem;
         left: 2rem;
         width: 8%;
         gap: 1.8rem;
     }
 
     .home__social-icon {
-        font-size: 1.9rem;
-    }
-
-    .home__cont-img {
-        width: 50%;
-        height: 570px;
-        padding-top: 90px;
-        margin-top: -9rem;
-        order: 2;
-        align-self: flex-end;
+        font-size: 2rem;
     }
 
     .home__data {
-        width: 50%;
-        margin: 12rem 4rem 0;
-        order: 1;
+        width: 40%;
+        margin: 0;
+        margin-bottom: 15rem;
+        margin-left: 6rem;
+        /* background-color: teal; */
+    }
+
+    .home__cont-img {
+        width: 40%;
+        height: 33rem;
+        padding-top: 6rem;
+        align-self: flex-end;
+        /* background-color: thistle; */
     }
 
     .home__img {
-        width: 415px;
+        width: 24rem;
     }
 
     .home_greeting {
         font-size: 25px;
-        padding: 0 4rem 1rem;
+        padding: 0 0 1rem;
     }
 
     .home__title {
-        font-size: 45px;
+        font-size: 50px;
         margin-bottom: 0.2rem;
     }
 
     .home__subtitle{
-        font-size: 27px;
+        font-size: 30px;
     }
 
     .home__welcome {
-        font-size: 24px;
-        padding: 2rem 0rem 0;
+        font-size: 25px;
+        padding: 3rem 0 0;
     }
 
 
@@ -2317,6 +2807,12 @@ textarea.contact__input {
 
 /* 1480 */
 @media screen and (min-width: 1440px) {
+    /* --------------- Switch Dark theme --------------- */
+    .switch {
+        font-size: 0.9em;
+    }
+
+
     /* -------------------- Header -------------------- */
     .header {
         padding: 1.8rem 4rem;
@@ -2342,18 +2838,22 @@ textarea.contact__input {
         font-size: 1.3rem;
     }
 
-    .change-theme {
-        font-size: 1.7rem;
-    }
-
 
 
     /* --------------------- Home --------------------- */
+    .home__content {
+        height: 100vh;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        /* background-color: tomato; */
+    }
+
     .home__social {
-        top: 30rem;
-        left: 3.5rem;
+        bottom: 11rem;
+        left: 2rem;
         width: 8%;
-        gap: 2rem;
+        gap: 1.8rem;
     }
 
     .home__social-icon {
@@ -2361,42 +2861,42 @@ textarea.contact__input {
     }
 
     .home__cont-img {
-        width: 50%;
-        height: 550px;
-        padding-top: 90px;
-        padding-left: 9rem;
-        margin-top: -8.5rem;
-        order: 2;
+        width: 40%;
+        height: 36rem;
+        padding-top: 6rem;
         align-self: flex-end;
+        /* background-color: thistle; */
     }
 
     .home__data {
-        width: 50%;
-        margin: 12rem 5rem 0;
-        order: 1;
+        width: 40%;
+        margin: 0;
+        margin-bottom: 15rem;
+        margin-left: 8rem;
+        /* background-color: teal; */
     }
 
     .home__img {
-        width: 400px;
+        width: 26.5rem;
     }
 
     .home_greeting {
-        font-size: 28px;
-        padding: 0 6rem 1rem;
+        font-size: 30px;
+        padding: 0 0 1rem;
     }
 
     .home__title {
-        font-size: 45px;
+        font-size: 60px;
         margin-bottom: 0.2rem;
     }
 
     .home__subtitle{
-        font-size: 28px;
+        font-size: 35px;
     }
 
     .home__welcome {
-        font-size: 25px;
-        padding: 3rem 3rem 0;
+        font-size: 30px;
+        padding: 3rem 0 0;
     }
 
 
@@ -2425,118 +2925,11 @@ textarea.contact__input {
 
 
 
-/* 1920 */
-@media screen and (min-width: 1920px) {
-    /* -------------------- Header -------------------- */
-    .header {
-        padding: 2rem 5rem;
-    }
-
-
-    /* --------------------- Nav --------------------- */
-    .nav {
-        max-width: 1900px;
-    }
-
-    .nav__logo-img {
-        width: 5rem;
-    }
-
-
-    /* ------------------- Nav Main ------------------- */
-    .nav__list {
-        gap: 3rem;
-    }
-
-    .nav__link {
-        font-size: 1.6rem;
-    }
-
-    .change-theme {
-        font-size: 2rem;
-    }
-
-
-
-    /* --------------------- Home --------------------- */
-    .home__social {
-        top: 30rem;
-        left: 4rem;
-        width: 8%;
-        gap: 2.5rem;
-    }
-
-    .home__social-icon {
-        font-size: 2.2rem;
-    }
-
-    .home__cont-img {
-        width: 50%;
-        height: 700px;
-        padding-top: 120px;
-        padding-left: 9rem;
-        margin-top: -22rem;
-        order: 2;
-        align-self: flex-end;
-    }
-
-    .home__data {
-        width: 50%;
-        margin: 12rem 9rem 0;
-        order: 1;
-    }
-
-    .home__img {
-        width: 515px;
-    }
-
-    .home_greeting {
-        font-size: 30px;
-        padding: 0 8rem 1rem;
-    }
-
-    .home__title {
-        font-size: 70px;
-        margin-bottom: 0.2rem;
-    }
-
-    .home__subtitle{
-        font-size: 30px;
-    }
-
-    .home__welcome {
-        font-size: 30px;
-        padding: 3rem 7rem 0;
-    }
-
-
-
-    /* Scroll Down */
-    .home__scroll-button {
-        bottom: 3rem;
-    }
-
-    .fn__svg {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-
-    .home__scroll-button .home__scroll-icon::after {
-        width: 3.5px;
-        height: 80px;
-        top: -3.3rem;
-    }
-
-    .home__scroll-button .home__scroll-name {
-        font-size: 18px;
-    }
-}
-
-
-
-
 /* ================================== PORTFOLIO ================================== */
+
 /* ------------------ Nav Footer ------------------ */
+
+
 
 
 
