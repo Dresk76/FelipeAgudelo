@@ -311,6 +311,12 @@ themeButton.addEventListener('click', () => {
     // We save the theme and the current icon that the user chose
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
+
+    // Cerrar menu al cambiar el theme
+    navMenu.classList.remove('show-menu')
+    navOpen.classList.remove('active')
+    navOverlay.classList.remove('active')
+    navClose.classList.add('active')
 })
 
 

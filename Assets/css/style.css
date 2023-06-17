@@ -1282,12 +1282,14 @@ input {
 }
 
 .mis_intereses-img-back-card {
-    width: 7rem;
-    margin-top: 2.5rem;
+    width: 8.5rem;
+    margin-top: 3rem;
 }
 
 .mis_intereses-text-back-card {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-medium);
 }
 
 .mis_intereses-content-card:hover .mis_intereses-card {
