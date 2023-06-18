@@ -140,7 +140,7 @@ let swiperPortfolio = new Swiper(".portfolio__container", {
     loop: true,
 
     autoplay: {
-        delay: 2000,
+        delay: 4000,
         disableOnInteraction: false,
     },
 
@@ -311,6 +311,12 @@ themeButton.addEventListener('click', () => {
     // We save the theme and the current icon that the user chose
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
+
+    // Cerrar menu al cambiar el theme
+    navMenu.classList.remove('show-menu')
+    navOpen.classList.remove('active')
+    navOverlay.classList.remove('active')
+    navClose.classList.add('active')
 })
 
 
@@ -324,7 +330,7 @@ gsap.from('.home__social-icon', {opacity: 0, duration: 2, delay:2, y:25, ease:'e
 
 /* --------------------- Nav --------------------- */
 gsap.from('.nav__logo-a-img, .nav__toggle-wrapper', {opacity: 0, duration: 2, delay:1.5, y:25, ease:'expo.out', stagger:.2})
-gsap.from('.nav__item, switch', {opacity: 0, duration: 2, delay:1.8, y:25, ease:'expo.out', stagger:.2})
+gsap.from('.nav__item, .switch', {opacity: 0, duration: 2, delay:1.8, y:25, ease:'expo.out', stagger:.2})
 
 
 // Esperar 2.5 segundos
@@ -332,7 +338,7 @@ setTimeout(function() {
     // Obtener el botón y agregar la clase "fade-in"
     var scrollButton = document.querySelector('.home__scroll-button');
     scrollButton.classList.add('fade-in');
-}, 1100);
+}, 1000);
 
 
 // Cuando la página se haya cargado completamente 
