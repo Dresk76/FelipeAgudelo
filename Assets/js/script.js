@@ -276,7 +276,34 @@ function scrollUp()
 {
     const scrollUp = document.getElementById('scroll-up')
 
-    if (this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+    if (this.scrollY >= 200)
+    {
+        scrollUp.classList.add('show-scroll');
+    }
+    else 
+    {
+        scrollUp.classList.remove('show-scroll');
+    }
+
+
+
+
+    
+    if (scrollUp)
+    {
+        scrollUp.addEventListener('click', () => {
+            $('html, body').animate({scrollTop: 0}, 2000, 'easeInOutExpo');
+            return false;
+        });
+    }
+
+
+
+
+    // $('.scrollup').click(function () {
+    //     $('html, body').animate({scrollTop: 0}, 2000, 'easeInOutExpo');
+    //     return false;
+    // });
 }
 window.addEventListener('scroll', scrollUp);
 
