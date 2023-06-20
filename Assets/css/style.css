@@ -35,7 +35,7 @@
     --diffuse-white: hsl(0, 0%, 60%);
     --shadow-card: hsl(0, 0%, 60%);
     --back-card: #151515;
-    --background: linear-gradient(to left, #00566f 0%, #E8021D 100%);
+    --background: linear-gradient(to left, hsl(353, 100%, 20%) 0%,  var(--first-color) 100%);
     --background-nav: rgba(0, 0, 0, .8);
     --shadow-nav: hsl(0, 0%, 30%);
     --text-nav: hsl(0, 0%, 60%);
@@ -114,7 +114,7 @@ body.dark-theme {
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
     --white-color: #20201f;
     --shadow-card: hsl(0, 0%, 10%);
-    --back-card: hsl(0, 0%, 60%);
+    --back-card: hsl(0, 0%, 80%);
     --background-nav: rgba(255, 255, 255, .8);
     --shadow-nav: hsl(0, 0%, 30%);
     --text-nav: hsl(0, 0%, 40%);
@@ -799,13 +799,29 @@ input {
     padding-inline: 1.8rem;
 }
 
+.nav__link::before
+{
+    content: "";
+    border-bottom: 2px solid var(--first-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    transition: .3s ease-out;
+}
+
+.nav__link:hover::before
+{
+    width: 102%;
+}
+
 .nav__link {
     display: flex;
     align-items: center;
     font-size: 2rem;
     color: var(--text-nav);
     font-weight: var(--font-medium);
-    transition: .3s;
+    transition: .3s ease-out;
 }
 
 .nav__link:hover {
@@ -859,6 +875,16 @@ input {
     color: var(--first-color);
 }
 
+.active-link::before {
+    color: var(--first-color);
+    content: "";
+    border-bottom: 2px solid var(--first-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 102%;
+}
+
 
 /* ----------- Change background header ----------- */
 .scroll-header {
@@ -874,7 +900,8 @@ input {
     gap: 0;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url('../img/attatck-on-titan.jpg');
+    /* background-image: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url('../img/portada.jpg'); */
+    background-image: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .70)), url('../img/portada.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -1240,7 +1267,7 @@ input {
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 300ms;
-    box-shadow: 4px 4px 10px 1px var(--shadow-card);
+    box-shadow: 3px 4px 10px 1px var(--shadow-card);
     border-radius: 5px;
 }
 
@@ -1278,10 +1305,6 @@ input {
     height: 160%;
     background: linear-gradient(90deg, transparent, #E8021D, #E8021D, #E8021D, #E8021D, transparent);
     animation: rotation_481 5000ms infinite linear;
-}
-
-.mis_intereses-back-content-card-two::before{
-    background: linear-gradient(90deg, transparent, #00566f, #00566f, #00566f, #00566f, transparent);
 }
 
 
@@ -2632,7 +2655,7 @@ textarea.contact__input {
     }
 
     .section {
-        padding: 6rem 1rem 2rem;
+        padding: 8rem 1rem 2rem;
     }
 
 
