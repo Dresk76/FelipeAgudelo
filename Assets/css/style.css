@@ -33,7 +33,12 @@
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
     --white-color: #dbd9ce;
     --diffuse-white: hsl(0, 0%, 60%);
+    --shadow-card: hsl(0, 0%, 60%);
+    --back-card: #151515;
     --background: linear-gradient(to left, #00566f 0%, #E8021D 100%);
+    --background-nav: rgba(0, 0, 0, .8);
+    --shadow-nav: hsl(0, 0%, 30%);
+    --text-nav: hsl(0, 0%, 60%);
 
 
     /* ====================== FONT AND TIPOGRAPHY ====================== */
@@ -99,13 +104,20 @@ body.dark-theme {
     /* ======================= HSL COLOR MODE ======================= */
     --first-color-second: hsl(var(--hue-color), 30%, 8%);
     --title-color: hsl(var(--hue-color), 8%, 95%);
-    --text-color: hsl(var(--hue-color), 8%, 75%);
+    --text-color: hsl(0, 5%, 11%);
+    --text-color-light: hsl(0, 4%, 15%);
     --input-color: hsl(var(--hue-color), 29%, 16%);
     /* --body-color: hsl(var(--hue-color), 28%, 12%); */
     --body-color: hsl(var(--hue-color), 60%, 99%);
     --container-color: hsl(var(--hue-color), 29%, 16%);
     --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+    --white-color: #20201f;
+    --shadow-card: hsl(0, 0%, 10%);
+    --back-card: hsl(0, 0%, 60%);
+    --background-nav: rgba(255, 255, 255, .8);
+    --shadow-nav: hsl(0, 0%, 30%);
+    --text-nav: hsl(0, 0%, 40%);
 }
 
 
@@ -638,7 +650,7 @@ input {
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    color: var(--diffuse-white);
+    color: var(--text-nav);
     transition: .3s;
     cursor: pointer;
 }
@@ -655,7 +667,7 @@ input {
 .line {
     width: 3rem;
     height: 1px;
-    background-color: var(--diffuse-white);
+    background-color: var(--text-nav);
     transition: all .3s;
     margin-block-end: 0.438rem;
 }
@@ -698,7 +710,7 @@ input {
         position: fixed;
         top: 0;
         left: 0;
-        background-color: rgba(0, 0, 0, .8);
+        background-color: var(--background-nav);
         width: 100%;
         height: 100vh;
         z-index: 10;
@@ -715,7 +727,7 @@ input {
         width: 100%;
         height: 100vh;
         z-index: 100;
-        background-color: #111;
+        background-color: var(--body-color);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -791,7 +803,7 @@ input {
     display: flex;
     align-items: center;
     font-size: 2rem;
-    color: var(--diffuse-white);
+    color: var(--text-nav);
     font-weight: var(--font-medium);
     transition: .3s;
 }
@@ -825,7 +837,7 @@ input {
 }
 
 .nav__footer-icon {
-    color: var(--diffuse-white);
+    color: var(--text-nav);
     font-size: 2rem;
     transition: .3s;
 }
@@ -838,7 +850,7 @@ input {
 .nav__footer-cr {
     font-size: 0.9rem;
     font-weight: var(--font-light);
-    color: var(--diffuse-white);
+    color: var(--text-nav);
 }
 
 
@@ -851,7 +863,7 @@ input {
 /* ----------- Change background header ----------- */
 .scroll-header {
     background-color: var(--body-color);
-    box-shadow: 0 1px 12px rgba(255, 255, 255, .2);
+    box-shadow: 0 1px 12px var(--shadow-nav);
 }
 
 
@@ -1208,18 +1220,14 @@ input {
 /* ================================ MIS INTERESES ================================ */
 .mis_intereses {
     /* background-color: tomato; */
-    padding: 1rem 0 4rem;
+    padding: 6rem 0 4rem;
 }
-
 
 .mis_intereses-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    justify-items: center;
     gap: var(--mb-2-5);
 }
-
 
 .mis_intereses-content-card {
     overflow: visible;
@@ -1232,13 +1240,13 @@ input {
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 300ms;
-    box-shadow: 0px 0px 10px 1px #000000ee;
+    box-shadow: 4px 4px 10px 1px var(--shadow-card);
     border-radius: 5px;
 }
 
 .mis_intereses-front-card,
 .mis_intereses-back-content-card {
-    background-color: #151515;
+    background-color: var(--back-card);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1281,7 +1289,7 @@ input {
     position: absolute;
     width: 99%;
     height: 99%;
-    background-color: #151515;
+    background-color: var(--back-card);
     border-radius: 5px;
     color: var(--white-color);
     display: flex;
@@ -1730,6 +1738,11 @@ input {
     bottom: -2.5rem;
 }
 
+.swiper-pagination-bullet
+{
+    background-color: var(--white-color);
+}
+
 .swiper-pagination-bullet-active {
     background-color: var(--first-color);
 }
@@ -1824,7 +1837,7 @@ input {
 
 /* ================================= CONTACT ME ================================= */
 .contact {
-    margin-top: 5rem;
+    margin: 5rem 0 4rem;
 }
 
 .contact__container {
@@ -1845,6 +1858,7 @@ input {
 .contact__title {
     font-size: var(--h3-font-size);
     font-weight: var(--font-medium);
+    color: var(--white-color);
 }
 
 .contact__subtitle {
@@ -1860,7 +1874,7 @@ input {
 
 .contact__social-icon {
     font-size: 1.6rem;
-    color: var(--diffuse-white);
+    color: var(--text-color-light);
     transition: .3s;
 }
 
@@ -1983,12 +1997,12 @@ textarea.contact__input {
 
 .footer__bg {
     background-color: var(--body-color);
-    box-shadow: 0 -2px 18px rgba(255, 255, 255, .2);
+    box-shadow: 0 -2px 18px var(--shadow-nav);
     padding: 2rem 0 3rem;
 }
 
 .footer__title {
-    font-size: 2.5rem;
+    font-size: var(--big-font-size);
     margin-bottom: var(--mb-0-5);
     color: var(--white-color);
 }
@@ -1996,15 +2010,17 @@ textarea.contact__input {
 .footer__subtitle {
     font-size: var(--h2-font-size);
     margin-bottom: var(--mb-1);
-    color: var(--text-color-light);
+    color: var(--first-color);
 }
 
 .footer__phrase {
-    font-size: var(--h3-font-size);
+    font-size: var(--normal-font-size);
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
 }
 
 .footer__social {
-    width: 35%;
+    width: 65%;
     display: flex;
     justify-content: space-between;
 }
@@ -2021,7 +2037,7 @@ textarea.contact__input {
 }
 
 .footer__copy {
-    font-size: var(--normal-font-size);
+    font-size: var(--small-font-size);
     text-align: center;
     color: var(--text-color-light);
     margin-top: var(--mb-3);
@@ -2033,29 +2049,30 @@ textarea.contact__input {
 /* ================================== SCROLL UP ================================== */
 .scrollup {
     position: fixed;
-    right: 1rem;
-    bottom: -20%;
-    background-color: var(--first-color);
-    opacity: .8;
+    right: 2rem;
+    bottom: 3rem;
+    border: 1px solid var(--first-color);
     padding: 0 .3rem;
     border-radius: .4rem;
     z-index: var(--z-tooltip);
-    transition: .4s;
+    opacity: 0;
+    transition: all .8s ease;
 }
 
 .scrollup:hover {
+    border: 1px solid var(--white-color);
     background-color: var(--first-color-alt);
 }
 
 .scrollup__icon {
-    font-size: 1.5rem;
-    color: #FFF;
+    font-size: 2.3rem;
+    color: var(--white-color);
 }
 
 
 /* ------------------ Show scroll ------------------ */
 .show-scroll {
-    bottom: 5rem;
+    opacity: .8;
 }
 
 
@@ -2064,17 +2081,17 @@ textarea.contact__input {
 /* ================================== SCROLL BAR ================================== */
 ::-webkit-scrollbar {
     width: .60rem;
-    background-color: var(--scroll-bar-color);
+    background-color: var(--text-color);
     border-radius: .5rem;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--scroll-thumb-color);
+    background-color: var(--first-color);
     border-radius: .5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--text-color-light);
+    background-color: var(--first-color-alt);
 }
 
 
@@ -2260,6 +2277,14 @@ textarea.contact__input {
     }
 
 
+
+    /* ----------------- Qualification ----------------- */
+    .qualification__data {
+        column-gap: 0.8rem;
+    }
+
+
+
     /* ------------------- Services ------------------- */
     .services__container {
         grid-template-columns: max-content;
@@ -2275,10 +2300,12 @@ textarea.contact__input {
     }
 
 
+
     /* ---------------- Project In Mind ---------------- */
     .project__img {
         width: 200px;
     }
+
 
 
     /* ------------------ Testimonial ------------------ */
@@ -2299,34 +2326,39 @@ textarea.contact__input {
     }
 
 
+
     /* --------------------- Footer --------------------- */
     .footer__title
     {
         font-size: 1.9rem;
+        margin-bottom: var(--mb-0-25);
     }
 
     .footer__subtitle
     {
         font-size: 1.3rem;
+        margin-bottom: var(--mb-0-75);
     }
 
     .footer__phrase
     {
         font-size: 1rem;
+        margin-left: var(--mb-1-5);
+        margin-right: var(--mb-1-5);
     }
 
     .footer__social {
-        width: 80%;
+        width: 75%;
     }
 
     .footer__social-icon
     {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     .footer__copy
     {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -2487,16 +2519,34 @@ textarea.contact__input {
     }
 
 
+
+    /* ---------------- Mis Intereses ---------------- */
+    .mis_intereses-container {
+        width: 80%;
+        margin: auto;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .mis_intereses-content-card {
+        width: 190px;
+        height: 280px;
+    }
+
+
+
     /* --------------------- About --------------------- */
     .about__container {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
+
     /* -------------------- Skills -------------------- */
     .skills__container {
         grid-template-columns: repeat(2, 1fr);
     }
+
 
 
     /* ---------------- Qualification ---------------- */
@@ -2507,10 +2557,12 @@ textarea.contact__input {
     }
 
 
+
     /* ------------------ Portfolio ------------------ */
     .portfolio__content {
         grid-template-columns: repeat(2, 1fr);
     }
+
 
 
     /* --------------- Project In Mind --------------- */
@@ -2519,15 +2571,50 @@ textarea.contact__input {
     }
 
 
+
     /* ------------------- Contact ------------------- */
     .contact__container {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
+
     /* -------------------- Footer -------------------- */
     .footer__container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer__title
+    {
+        font-size: 2.4rem;
+        margin-bottom: var(--mb-0-25);
+    }
+
+    .footer__subtitle
+    {
+        font-size: 1.5rem;
+        margin-bottom: var(--mb-1);
+    }
+
+    .footer__phrase
+    {
+        font-size: 1.15rem;
+        margin-left: var(--mb-2);
+        margin-right: var(--mb-2);
+    }
+
+    .footer__social {
+        width: 50%;
+    }
+
+    .footer__social-icon
+    {
+        font-size: 1.6rem;
+    }
+
+    .footer__copy
+    {
+        font-size: 1rem;
     }
 }
 
@@ -2663,6 +2750,14 @@ textarea.contact__input {
 
 
 
+    /* ---------------- Mis Intereses ---------------- */
+    .mis_intereses-container {
+        width: 90%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+
     /* -------------------- About -------------------- */
     .about__container {
         column-gap: 5rem;
@@ -2772,8 +2867,32 @@ textarea.contact__input {
         column-gap: 2rem;
     }
 
-    .footer__socials {
-        justify-self: flex-end;
+    .footer__title
+    {
+        font-size: 3rem;
+        margin-bottom: var(--mb-0-25);
+    }
+
+    .footer__subtitle
+    {
+        font-size: 1.9rem;
+        margin-bottom: var(--mb-1-5);
+    }
+
+    .footer__phrase
+    {
+        font-size: 1.25rem;
+        margin-left: var(--mb-2);
+        margin-right: var(--mb-2);
+    }
+
+    .footer__social {
+        width: 35%;
+    }
+
+    .footer__social-icon
+    {
+        font-size: 1.6rem;
     }
 
     .footer__copy {
@@ -2788,7 +2907,6 @@ textarea.contact__input {
 
 /* 1058 */
 @media screen and (min-width: 1024px) {
-
     /* --------------- Switch Dark theme --------------- */
     .switch {
         font-size: 0.8em;
@@ -2915,10 +3033,24 @@ textarea.contact__input {
     }
 
 
+
+    /* ---------------- Mis Intereses ---------------- */
+    .mis_intereses-container {
+        width: 80%;
+    }
+
+    .mis_intereses-content-card {
+        width: 230px;
+        height: 320px;
+    }
+
+
+
     /* ------------------- Services ------------------- */
     .services__container {
         grid-template-columns: repeat(3, 238px);
     }
+
 
 
     /* ------------------ Portfolio ------------------ */
@@ -2943,6 +3075,7 @@ textarea.contact__input {
     }
 
 
+
     /* ------------------- Contact ------------------- */
     .contact__form {
         width: 460px;
@@ -2950,6 +3083,13 @@ textarea.contact__input {
 
     .contact__inputs {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+
+
+    /* -------------------- Footer -------------------- */
+    .footer__social {
+        width: 25%;
     }
 }
 
@@ -3066,6 +3206,20 @@ textarea.contact__input {
 
     .home__scroll-button .home__scroll-name {
         font-size: 15px;
+    }
+
+
+
+    /* ---------------- Mis Intereses ---------------- */
+    .mis_intereses-container {
+        width: 65%;
+    }
+
+
+
+    /* -------------------- Footer -------------------- */
+    .footer__social {
+        width: 20%;
     }
 }
 
@@ -3187,6 +3341,21 @@ textarea.contact__input {
 
     .home__scroll-button .home__scroll-name {
         font-size: 15px;
+    }
+
+
+
+    /* ---------------- Mis Intereses ---------------- */
+    .mis_intereses-container {
+        width: 55%;
+        gap: 0;
+    }
+
+
+
+    /* -------------------- Footer -------------------- */
+    .footer__social {
+        width: 14%;
     }
 }
 
