@@ -140,7 +140,7 @@ let swiperPortfolio = new Swiper(".portfolio__container", {
     loop: true,
 
     autoplay: {
-        delay: 4000,
+        delay: 5000,
         disableOnInteraction: false,
     },
 
@@ -209,7 +209,7 @@ const sections = document.querySelectorAll("section[id]");
 
 function scrollActive()
 {
-    let scrollY = window.pageYOffset;
+    const scrollY = window.pageYOffset
     
     sections.forEach(current => {
         const sectionHeight = current.offsetHeight;
@@ -284,26 +284,6 @@ function scrollUp()
     {
         scrollUp.classList.remove('show-scroll');
     }
-
-
-
-
-    
-    if (scrollUp)
-    {
-        scrollUp.addEventListener('click', () => {
-            $('html, body').animate({scrollTop: 0}, 2000, 'easeInOutExpo');
-            return false;
-        });
-    }
-
-
-
-
-    // $('.scrollup').click(function () {
-    //     $('html, body').animate({scrollTop: 0}, 2000, 'easeInOutExpo');
-    //     return false;
-    // });
 }
 window.addEventListener('scroll', scrollUp);
 
@@ -381,13 +361,6 @@ setTimeout(function() {
 
 
 /* ------------------ Nav Footer ------------------ */
-
-
-
-
-
-
-
 
 
 
