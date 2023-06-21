@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!--======================================= ICONO =======================================-->
+    <link rel="shortcut icon" href="Assets/img/iconoLogo.png" type="image/x-icon">
+
     <!--====================================== UNICONS ======================================-->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
@@ -263,8 +266,13 @@
 
                     <div class="about__buttons">
                         <a href="Assets/pdf/CvGameDeveloperSpanish.pdf" target="_blank"
-                            alt="CV-Felipe_Agudelo" class="button">
-                            Curriculum <i class="uil uil-file-alt button__icon"></i>
+                            alt="CV-Felipe_Agudelo" class="button-neon about__button">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Curriculum 
+                            <i class="uil uil-file-alt button__icon"></i>
                         </a>
                     </div>
                 </div>
@@ -780,7 +788,11 @@
                                 Un portafolio como un videojuego retro en 2D realizado en Unity: transformando 
                                 mi trayectoria en una experiencia interactiva y cautivadora.
                             </p>
-                            <a href="https://dresk76.itch.io/the-artifact-seeker" target="_blank" class="button button--small portfolio__button">
+                            <a href="https://dresk76.itch.io/the-artifact-seeker" target="_blank" class="button-neon button--small portfolio__button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                                 Ver portafolio
                                 <i class="uil uil-arrow-right button__icon"></i>
                             </a>
@@ -797,7 +809,11 @@
                                 Un proyecto realizado de la mano de una talentosa artista visual, uniendo la programación 
                                 creativa y el arte visual para crear un portafolio cautivador y envolvente.
                             </p>
-                            <a href="https://dresk76.itch.io/the-artifact-seeker" target="_blank" class="button button--small portfolio__button">
+                            <a href="https://dresk76.itch.io/the-artifact-seeker" target="_blank" class="button-neon button--small portfolio__button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                                 Ver portafolio
                                 <i class="uil uil-arrow-right button__icon"></i>
                             </a>
@@ -816,7 +832,11 @@
                                 detalles sobre mi vida como desarrollador, permitiendo a los jugadores descubrir 
                                 información interesante mientras disfrutan de la aventura.
                             </p>
-                            <a href="https://dresk76.itch.io/the-artifact-seeker" target="_blank" class="button button--small portfolio__button">
+                            <a href="https://dresk76.itch.io/the-artifact-seeker" target="_blank" class="button-neon button--small portfolio__button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                                 Ver portafolio
                                 <i class="uil uil-arrow-right button__icon"></i>
                             </a>
@@ -1029,35 +1049,39 @@
                     </div>
                 </div>
 
-                <form action="" id="myForm" class="contact__form grid">
+                <form action="envia_mail.php" method="POST" id="myForm" class="contact__form grid">
                     <div class="contact__inputs grid">
                         <div class="contact__content">
-                            <input type="text" class="contact__input" required="required">
+                            <input type="text" name="name" class="contact__input" required="required">
                             <label for="" class="contact__label">Nombre</label>
                             <span>Nombre</span>
                         </div>
 
                         <div class="contact__content">
-                            <input type="email" class="contact__input" required="required">
+                            <input type="email" name="email" class="contact__input" required="required">
                             <label for="" class="contact__label">Email</label>
                             <span>Email</span>
                         </div>
                     </div>
 
                     <div class="contact__content">
-                        <input type="text" class="contact__input" required="required">
+                        <input type="text" name="subject" class="contact__input" required="required">
                         <label for="" class="contact__label">Asunto</label>
                         <span>Asunto</span>
                     </div>
 
                     <div class="contact__content textarea">
-                        <textarea name="" id="" class="contact__input" required="required"></textarea>
+                        <textarea name="massage" id="" class="contact__input" required="required"></textarea>
                         <label for="" class="contact__label">Mensaje</label>
                         <span>Mensaje</span>
                     </div>
 
-                    <div>
-                        <button type="submit" class="button portfolio__submit">
+                    <div class="about__buttons">
+                        <button type="submit" class="button-neon portfolio__submit">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                             Enviar Mensaje
                             <i class="uil uil-message button__icon"></i>
                         </button>

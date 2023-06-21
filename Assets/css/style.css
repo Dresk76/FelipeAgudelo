@@ -16,8 +16,9 @@
     --hue-color: 353;
 
     /* ======================= HSL COLOR MODE ======================= */
-    --first-color: hsl(var(--hue-color), 98%, 46%);
     /*E8021D*/
+    --first-color: hsl(var(--hue-color), 98%, 46%);
+
     --first-color-second: hsl(var(--hue-color), 69%, 61%);
     --first-color-alt: hsl(var(--hue-color), 57%, 53%);
     --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
@@ -35,7 +36,7 @@
     --diffuse-white: hsl(0, 0%, 60%);
     --shadow-card: hsl(0, 0%, 60%);
     --back-card: #151515;
-    --background: linear-gradient(to left, hsl(353, 100%, 20%) 0%,  var(--first-color) 100%);
+    --background: linear-gradient(to left, hsl(var(--hue-color), 100%, 20%) 0%,  var(--first-color) 100%);
     --background-nav: rgba(0, 0, 0, .8);
     --shadow-nav: hsl(0, 0%, 30%);
     --text-nav: hsl(0, 0%, 60%);
@@ -102,22 +103,14 @@
 /* ============================== BUTTON DARK/LIGHT ============================== */
 body.dark-theme {
     /* ======================= HSL COLOR MODE ======================= */
-    --first-color-second: hsl(var(--hue-color), 30%, 8%);
-    --title-color: hsl(var(--hue-color), 8%, 95%);
-    --text-color: hsl(0, 5%, 11%);
-    --text-color-light: hsl(0, 4%, 15%);
-    --input-color: hsl(var(--hue-color), 29%, 16%);
-    /* --body-color: hsl(var(--hue-color), 28%, 12%); */
-    --body-color: hsl(var(--hue-color), 60%, 99%);
-    --container-color: hsl(var(--hue-color), 29%, 16%);
-    --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
-    --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
-    --white-color: #20201f;
-    --shadow-card: hsl(0, 0%, 10%);
-    --back-card: hsl(0, 0%, 80%);
-    --background-nav: rgba(255, 255, 255, .8);
-    --shadow-nav: hsl(0, 0%, 30%);
-    --text-nav: hsl(0, 0%, 40%);
+    --hue-color: 207;
+
+    /* 2196F3 */
+    --first-color: hsl(var(--hue-color), 86%, 54%);
+    --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+    --background: linear-gradient(to left, hsl(var(--hue-color), 100%, 20%) 0%,  var(--first-color) 100%);
+
+
 }
 
 
@@ -1111,6 +1104,134 @@ input {
     color: var(--first-color);
 }
 
+
+/* ------------------ Boton Neon ------------------ */
+.button-neon 
+{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    color: var(--first-color);
+    padding: 1rem 1.4rem;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.5s ease;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+
+.button-neon:hover
+{
+    color: var(--body-color);
+    background: var(--first-color);
+    box-shadow: 0 0 10px var(--first-color), 0 0 40px var(--first-color), 0 0 80px var(--first-color);
+}
+
+
+.button-neon span 
+{
+    position: absolute;
+    display: block;
+}
+
+.button-neon span:nth-child(1)
+{
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--first-color));
+    animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1
+{
+    0%
+    {
+        left: -100%;
+    }
+    50%, 100%
+    {
+        left: 100%;
+    }
+}
+
+.button-neon span:nth-child(2)
+{
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--first-color));
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;;
+}
+
+@keyframes animate2
+{
+    0%
+    {
+        top: -100%;
+    }
+    50%, 100%
+    {
+        top: 100%;
+    }
+}
+
+.button-neon span:nth-child(3)
+{
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, var(--first-color));
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes animate3
+{
+    0%
+    {
+        right: -100%;
+    }
+    50%, 100%
+    {
+        right: 100%;
+    }
+}
+
+.button-neon span:nth-child(4)
+{
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, var(--first-color));
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes animate4
+{
+    0%
+    {
+        bottom: -100%;
+    }
+    50%, 100%
+    {
+        bottom: 100%;
+    }
+}
+
+
 .button__icon {
     font-size: 1.25rem;
     transition: .3s;
@@ -1147,17 +1268,15 @@ input {
 
 
 
-
 /* ================================ ABOUT ================================ */
 
 /* --------------------- Card --------------------- */
 .card {
     width: 230px;
     height: 300px;
-    padding: 5px;
-    border-radius: .6rem;
+    padding: 4px;
+    border-radius: 5px;
     overflow: visible;
-    background: #E8021D;
     background: var(--background);
     justify-self: center;
     position: relative;
@@ -1168,17 +1287,16 @@ input {
 .card::after {
     position: absolute;
     content: "";
-    top: 30px;
+    top: -30px;
     left: 0;
     right: 0;
     z-index: -1;
     height: 100%;
     width: 100%;
-    transform: scale(0.8);
-    filter: blur(25px);
-    background: #E8021D;
+    transform: scale(1.3);
+    filter: blur(150px);
     background: var(--background);
-    transition: opacity .5s;
+    transition: opacity .5s ease;
 }
 
 .card-info {
@@ -1191,7 +1309,7 @@ input {
     width: 100%;
     height: 100%;
     overflow: visible;
-    border-radius: .4rem;
+    border-radius: 3px;
 }
 
 /*Hover*/
@@ -1242,8 +1360,6 @@ input {
 }
 
 
-
-
 /* ================================ MIS INTERESES ================================ */
 .mis_intereses {
     /* background-color: tomato; */
@@ -1283,7 +1399,6 @@ input {
     overflow: hidden;
 }
 
-
 .mis_intereses-front-card {
     cursor: pointer;
 }
@@ -1303,7 +1418,7 @@ input {
     display: block;
     width: 160px;
     height: 160%;
-    background: linear-gradient(90deg, transparent, #E8021D, #E8021D, #E8021D, #E8021D, transparent);
+    background: linear-gradient(90deg, transparent, var(--first-color), var(--first-color), var(--first-color), var(--first-color), transparent);
     animation: rotation_481 5000ms infinite linear;
 }
 
@@ -1735,6 +1850,11 @@ input {
     margin-bottom: var(--mb-0-75);
 }
 
+.portfolio__button
+{
+    font-size: var(--smaller-font-size);
+}
+
 .portfolio__button:hover .button__icon {
     transform: translateX(.25rem);
 }
@@ -2085,6 +2205,7 @@ textarea.contact__input {
 .scrollup:hover {
     border: 1px solid var(--white-color);
     background-color: var(--first-color-alt);
+    box-shadow: 0 0 10px var(--first-color), 0 0 40px var(--first-color), 0 0 80px var(--first-color);
 }
 
 .scrollup__icon {
@@ -2320,6 +2441,14 @@ textarea.contact__input {
 
     .services__modal {
         padding: 0 .5rem;
+    }
+
+
+
+    /* ------------------- Portfolio ------------------- */
+    .portfolio__button
+    {
+        font-size: var(--smaller-font-size)
     }
 
 
@@ -2598,6 +2727,11 @@ textarea.contact__input {
     /* ------------------- Contact ------------------- */
     .contact__container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio__submit
+    {
+        font-size: var(--small-font-size);
     }
 
 
@@ -3379,6 +3513,17 @@ textarea.contact__input {
     /* -------------------- Footer -------------------- */
     .footer__social {
         width: 14%;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .nav__link:hover::before {
+        width: 0;
+    }
+
+    .active-link::before {
+        width: 0;
     }
 }
 
