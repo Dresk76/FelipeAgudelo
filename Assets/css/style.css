@@ -18,7 +18,6 @@
     /* ======================= HSL COLOR MODE ======================= */
     /*E8021D*/
     --first-color: hsl(var(--hue-color), 98%, 46%);
-
     --first-color-second: hsl(var(--hue-color), 69%, 61%);
     --first-color-alt: hsl(var(--hue-color), 57%, 53%);
     --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
@@ -27,7 +26,6 @@
     --text-color-light: hsl(var(--hue-color), 8%, 65%);
     --input-color: hsl(var(--hue-color), 70%, 96%);
     --input-color: hsl(51, 15%, 83%);
-    /* --body-color: hsl(var(--hue-color), 60%, 99%); */
     --body-color: #000000;
     --container-color: #FFF;
     --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
@@ -941,13 +939,14 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 2.5rem;
     padding-left: 5rem;
     /* background-color: teal; */
 }
 
 .home__img {
-    width: 13rem;
+    width: 14rem;
+    width: 20rem;
+    /* background-color: tan; */
 }
 
 .home_greeting {
@@ -1124,7 +1123,6 @@ input {
     transition: 0.5s ease;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
-
 
 .button-neon:hover
 {
@@ -1602,7 +1600,7 @@ input {
 
 
 .skills__html {
-    width: 90%;
+    width: 80%;
 }
 
 .skills__css {
@@ -1622,7 +1620,7 @@ input {
 
 
 .skills__unity {
-    width: 80%;
+    width: 70%;
 }
 
 
@@ -1978,7 +1976,7 @@ input {
 
 
 
-/* ================================= CONTACT ME ================================= */
+/* =============================== CONTACT ME FORM =============================== */
 .contact {
     margin: 5rem 0 4rem;
 }
@@ -2122,6 +2120,50 @@ textarea.contact__input {
     font-size: var(--normal-font-size);
 }
 
+
+
+
+/* ================================= CONTACT ME ================================= */
+.contact-me {
+    margin: 5rem 0 2rem;
+}
+
+.contacts__information {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+.contact__information-two,
+.contact__information-three {
+    display: flex;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.contact__information-two {
+    margin-bottom: var(--mb-3-5);
+}
+
+.contact__information-three {
+    margin-bottom: var(--mb-2);
+}
+
+.contact__social-me {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 3rem;
+}
+
+.contact__social-icon-two {
+    font-size: 1.5rem;
+}
+
+.contact-neon {
+    padding: 3.2rem 1.5rem;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent);
+}
 
 
 
@@ -2362,18 +2404,18 @@ textarea.contact__input {
     .home__data {
         width: 80%;
         margin-top: 6rem;
-        /* background-color: thistle; */
     }
 
     .home__cont-img {
-        height: 14rem;
-        padding-top: 2.5rem;
-        padding-left: 5rem;
+        height: 16rem;
+        padding-left: 0rem;
         /* background-color: teal; */
     }
 
     .home__img {
-        width: 10.5rem;
+        width: 16rem;
+        margin-left: 5rem;
+        /* background-color: tan; */
     }
 
     .home_greeting {
@@ -2625,13 +2667,14 @@ textarea.contact__input {
 
     .home__cont-img {
         height: 23rem;
-        padding-top: 4rem;
-        padding-left: 5rem;
+        /* padding-top: 4rem; */
         /* background-color: teal; */
     }
 
     .home__img {
-        width: 17rem;
+        width: 24rem;
+        margin-left: 0;
+        /* background-color: tan; */
     }
 
     .home_greeting {
@@ -2724,14 +2767,26 @@ textarea.contact__input {
 
 
 
-    /* ------------------- Contact ------------------- */
+    /* ---------------- Contact Me Form ---------------- */
     .contact__container {
         grid-template-columns: repeat(2, 1fr);
+        /* background-color: teal; */
     }
 
     .portfolio__submit
     {
         font-size: var(--small-font-size);
+    }
+
+
+
+    /* ------------------ Contact Me ------------------ */
+    .contact__social-me {
+        gap: 1.5rem;
+    }
+
+    .contact-neon {
+        padding: 2.7rem 1.2rem;
     }
 
 
@@ -2853,21 +2908,20 @@ textarea.contact__input {
 
     .home__data {
         width: 50%;
-        margin: 10rem 5rem 0;
+        margin: 10rem 9rem 0;
         /* background-color: thistle; */
     }
 
     .home__cont-img {
-        width: 50%;
-        height: 29.3rem;
-        padding-top: 5rem;
-        padding-left: 0;
-        align-self: flex-end;
-        /* background-color: thistle; */
+        height: 23rem;
+        padding-bottom: 1rem;
+        /* background-color: teal; */
     }
 
     .home__img {
-        width: 21.5rem;
+        width: 23rem;
+        margin-left: 20rem;
+        /* background-color: tan; */
     }
 
     .home_greeting {
@@ -3006,6 +3060,18 @@ textarea.contact__input {
     }
 
 
+
+    /* ------------------ Contact Me ------------------ */
+    .contact__social-me {
+        gap: 3rem;
+    }
+
+    .contact-neon {
+        padding: 2.2rem 1.2rem;
+    }
+
+
+
     /* -------------------- Footer -------------------- */
     .footer__container {
         padding: 0 1rem;
@@ -3124,21 +3190,23 @@ textarea.contact__input {
     .home__data {
         width: 40%;
         margin: 0;
-        margin-bottom: 18rem;
-        margin-left: 6rem;
+        margin-bottom: 15rem;
+        margin-left: 11rem;
         /* background-color: teal; */
     }
 
     .home__cont-img {
-        width: 40%;
         height: 30rem;
-        padding-top: 5rem;
+        padding-top: 1rem;
+        padding-left: 0;
         align-self: flex-end;
-        /* background-color: thistle; */
+        /* background-color: teal; */
     }
 
     .home__img {
-        width: 22rem;
+        width: 37rem;
+        margin-left: 0;
+        /* background-color: tan; */
     }
 
     .home_greeting {
@@ -3233,13 +3301,24 @@ textarea.contact__input {
 
 
 
-    /* ------------------- Contact ------------------- */
+    /* --------------- Contact Me Form --------------- */
     .contact__form {
         width: 460px;
     }
 
     .contact__inputs {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+
+
+    /* ------------------ Contact Me ------------------ */
+    .contact__social-me {
+        gap: 3.2rem;
+    }
+
+    .contact-neon {
+        padding: 2.4rem 1.5rem;
     }
 
 
@@ -3309,20 +3388,21 @@ textarea.contact__input {
         width: 40%;
         margin: 0;
         margin-bottom: 15rem;
-        margin-left: 6rem;
+        margin-left: 13rem;
         /* background-color: teal; */
     }
 
     .home__cont-img {
-        width: 40%;
         height: 33rem;
-        padding-top: 6rem;
-        align-self: flex-end;
-        /* background-color: thistle; */
+        padding-top: 1rem;
+        padding-left: 0;
+        /* background-color: teal; */
     }
 
     .home__img {
-        width: 24rem;
+        width: 35rem;
+        margin-left: 0rem;
+        /* background-color: tan; */
     }
 
     .home_greeting {
@@ -3370,6 +3450,17 @@ textarea.contact__input {
     /* ---------------- Mis Intereses ---------------- */
     .mis_intereses-container {
         width: 65%;
+    }
+
+
+
+    /* ------------------ Contact Me ------------------ */
+    .contact__social-me {
+        gap: 3.5rem;
+    }
+
+    .contact-neon {
+        padding: 2.4rem 1.7rem;
     }
 
 
@@ -3439,24 +3530,25 @@ textarea.contact__input {
         font-size: 2rem;
     }
 
-    .home__cont-img {
-        width: 40%;
-        height: 36rem;
-        padding-top: 6rem;
-        align-self: flex-end;
-        /* background-color: thistle; */
-    }
-
     .home__data {
         width: 40%;
         margin: 0;
-        margin-bottom: 15rem;
-        margin-left: 8rem;
+        margin-bottom: 10rem;
+        margin-left: 13rem;
+        /* background-color: teal; */
+    }
+
+    .home__cont-img {
+        height: 35rem;
+        padding-top: 1rem;
+        padding-left: 0;
         /* background-color: teal; */
     }
 
     .home__img {
-        width: 26.5rem;
+        width: 37rem;
+        margin-left: 0rem;
+        /* background-color: tan; */
     }
 
     .home_greeting {
@@ -3506,6 +3598,17 @@ textarea.contact__input {
     .mis_intereses-container {
         width: 55%;
         gap: 0;
+    }
+
+
+
+    /* ------------------ Contact Me ------------------ */
+    .contact__social-me {
+        gap: 3.6 rem;
+    }
+
+    .contact-neon {
+        padding: 2.4rem 1.8rem;
     }
 
 
