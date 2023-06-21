@@ -10,11 +10,14 @@ window.addEventListener("load", () => {
 })
 
 
+
+
 /* ========================= MENU SHOW & HIDDEN ========================= */
 const navMenu = document.getElementById('nav-menu'),
       navOpen = document.getElementById('nav-toggle'),
       navClose = document.querySelector("#nav-menu #nav-close"),
       navOverlay = document.getElementById('nav-overlay')
+
 
 
 
@@ -32,6 +35,7 @@ if (navOpen)
 
 
 
+
 /* ============================= MENU HIDDEN ============================= */
 /* Validateif constant exists */
 if (navClose)
@@ -43,6 +47,7 @@ if (navClose)
         navClose.classList.add('active')
     })
 }
+
 
 
 
@@ -59,6 +64,7 @@ function linkAction()
     navClose.classList.add('active')
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
+
 
 
 
@@ -86,6 +92,7 @@ skillsHeader.forEach ((el) => {
 
 
 
+
 /* ========================== QUALIFICATION TABS ========================== */
 const tabs = document.querySelectorAll('[data-target]'),
       tabContents = document.querySelectorAll('[data-content]')
@@ -105,6 +112,7 @@ tabs.forEach(tab => {
         tab.classList.add('qualification__active')
     })
 })
+
 
 
 
@@ -134,6 +142,7 @@ modalCloses.forEach((modalClose) => {
 
 
 
+
 /* ========================== PORTFOLIO SWIPER ========================== */
 let swiperPortfolio = new Swiper(".portfolio__container", {
     cssMode: true,
@@ -153,6 +162,7 @@ let swiperPortfolio = new Swiper(".portfolio__container", {
         clickable: true,
     },
 });
+
 
 
 
@@ -182,6 +192,7 @@ let swiperTestimonial = new Swiper(".testimonial__container", {
 
 
 
+
 /* =========================== INPUT ANIMATION =========================== */
 const inputs = document.querySelectorAll(".contact__input");
 
@@ -204,63 +215,37 @@ inputs.forEach((input) => {
 
 
 
+
 /* ===================== SCROLL SECTIONS ACTIVE LINK ===================== */
 const sections = document.querySelectorAll("section[id]");
+const header = document.querySelector("header");
 
-function scrollActive()
-{
-    const scrollY = window.pageYOffset
-    
+function scrollActive() {
+    const scrollY = window.pageYOffset;
+
     sections.forEach(current => {
         const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 50,
-        sectionId = current.getAttribute('id');
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight)
-        {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add("active-link")
+        const sectionTop = current.offsetTop - 50;
+        const sectionId = current.getAttribute('id');
+        const navLink = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLink.classList.add("active-link");
+            if (sectionId === "home") {
+                header.classList.remove('scroll-header');
+            }
+            else
+            {
+                header.classList.add('scroll-header');
+            }
+        } else {
+            navLink.classList.remove("active-link");
         }
-        else
-        {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove("active-link")
-        }
-    })
+    });
 }
+
 window.addEventListener('scroll', scrollActive);
 
-
-
-/* ======================= CHANGE BACKGROUND HEADER ======================= */
-function scrollHeader() {
-    const header = document.getElementById('header');
-    let scrollYValue = 1;
-    
-    for (let breakpoint in breakpoints) {
-        if (window.innerWidth >= breakpoint) {
-            scrollYValue = breakpoints[breakpoint][0];
-        }
-    }
-    
-    if (this.scrollY >= scrollYValue) {
-        header.classList.add('scroll-header');
-    } 
-    else 
-    {
-        header.classList.remove('scroll-header');
-    }
-}
-
-window.addEventListener('scroll', scrollHeader);
-
-const breakpoints = {
-    280: [650],
-    400: [900],
-    568: [920],
-    768: [920],
-    1024: [920],
-    1216: [920],
-    1480: [1000],
-};
 
 
 
@@ -268,6 +253,7 @@ const breakpoints = {
 window.addEventListener('scroll', function() {
     // console.log(window.scrollY);
 });
+
 
 
 
@@ -286,6 +272,7 @@ function scrollUp()
     }
 }
 window.addEventListener('scroll', scrollUp);
+
 
 
 
@@ -325,6 +312,8 @@ themeButton.addEventListener('click', () => {
     navOverlay.classList.remove('active')
     navClose.classList.add('active')
 })
+
+
 
 
 /* ============================ GSAP ANIMATION ============================ */
