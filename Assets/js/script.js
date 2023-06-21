@@ -285,9 +285,12 @@ const iconTheme = 'uil-sun'
 const selectedTheme = localStorage.getItem('selected-theme')
 const selectedIcon = localStorage.getItem('selected-icon')
 
+const logoImg = document.querySelector('#logo img')
+
 // We obtain the current theme that the interface has by validating the dark-theme class
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
 const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
+
 
 // We validate if the user previously chose a topic
 if (selectedTheme)
@@ -302,9 +305,19 @@ themeButton.addEventListener('click', () => {
     // Add or remove the dark / icon theme
     document.body.classList.toggle(darkTheme)
     themeButton.classList.toggle(iconTheme)
+
+    // Update logo image source based on the theme
+    const logoImg = document.querySelector('#logo img');
+    const isDarkTheme = document.body.classList.contains(darkTheme);
+    logoImg.src = isDarkTheme ? 'Assets/img/iconoLogoAzul.png' : 'Assets/img/iconoLogoRojo.png';
+
+    // Update logo image source based on the theme
+    const homeImg = document.getElementById('home-img');
+    homeImg.src = isDarkTheme ? 'Assets/img/homeImgAzul.png' : 'Assets/img/homeImgRojo.png';
+
     // We save the theme and the current icon that the user chose
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
+    // localStorage.setItem('selected-theme', getCurrentTheme())
+    // localStorage.setItem('selected-icon', getCurrentIcon())
 
     // Cerrar menu al cambiar el theme
     navMenu.classList.remove('show-menu')
@@ -326,7 +339,8 @@ gsap.from('.home__social-icon', {opacity: 0, duration: 2, delay:2, y:25, ease:'e
 
 /* --------------------- Nav --------------------- */
 gsap.from('.nav__logo-a-img, .nav__toggle-wrapper', {opacity: 0, duration: 2, delay:1.5, y:25, ease:'expo.out', stagger:.2})
-gsap.from('.nav__item, .switch', {opacity: 0, duration: 2, delay:1.8, y:25, ease:'expo.out', stagger:.2})
+// gsap.from('.nav__item, .switch', {opacity: 0, duration: 2, delay:1.8, y:25, ease:'expo.out', stagger:.2})
+gsap.from('.nav__item', {opacity: 0, duration: 2, delay:1.8, y:25, ease:'expo.out', stagger:.2})
 
 
 // Esperar 2.5 segundos
