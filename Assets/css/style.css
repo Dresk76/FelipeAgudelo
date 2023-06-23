@@ -107,8 +107,7 @@ body.dark-theme {
     --first-color: hsl(var(--hue-color), 86%, 54%);
     --first-color-alt: hsl(var(--hue-color), 57%, 53%);
     --background: linear-gradient(to left, hsl(var(--hue-color), 100%, 20%) 0%,  var(--first-color) 100%);
-
-
+    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
 }
 
 
